@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Head from 'next/head';
- 
+
 // ── QUESTIONS ──────────────────────────────────────────────────────────────
 const QUESTIONS = [
   // Important Work
@@ -44,10 +44,10 @@ const QUESTIONS = [
   { id: 34, element: 'Community', text: "People speak well of this organization when they are not at work." },
   { id: 35, element: 'Community', text: "The relationships here would survive a significant leadership change." },
 ];
- 
+
 const ELEMENTS = ['Important Work', 'Curiosity', 'Challenge', 'Trust', 'Community'];
 const SCALE = ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'];
- 
+
 // ── SCORING ────────────────────────────────────────────────────────────────
 function elementScore(answers, el) {
   const qs = QUESTIONS.filter(q => q.element === el).filter(q => answers[q.id]);
@@ -68,7 +68,7 @@ function scoreLabel(s) {
   if (s < 40) return 'Critical'; if (s < 55) return 'At Risk';
   if (s < 70) return 'Developing'; if (s < 85) return 'Strong'; return 'Exceptional';
 }
- 
+
 // ── NARRATIVES ─────────────────────────────────────────────────────────────
 const NARRATIVES = {
   'Important Work': {
@@ -104,7 +104,7 @@ function overallNarrative(s) {
   if (s < 75) return "This organization has meaningful Courage Economy foundations. Leaders have made real investments in trust, purpose, and honest challenge. The work now is to close the remaining gaps — to make courage the default rather than the exception. The infrastructure is there. The question is whether it extends to the hardest moments.";
   return "This organization demonstrates strong Courage Economy characteristics across multiple dimensions. The culture here makes truth-telling less costly than in most organizations — which means better decisions, stronger teams, and more durable performance. The work at this level is to sustain it deliberately. Courage Economies require ongoing maintenance. Complacency is the enemy.";
 }
- 
+
 // ── STYLES ─────────────────────────────────────────────────────────────────
 const S = {
   page:       { minHeight: '100vh', background: '#0a1f3d', color: '#e8e4dc' },
@@ -123,7 +123,7 @@ const S = {
   input:      { width: '100%', background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)', borderRadius: '4px', padding: '14px 16px', color: '#e8e4dc', fontSize: '1rem', fontFamily: 'Inter, sans-serif' },
   label:      { display: 'block', marginBottom: '8px', fontSize: '0.8rem', fontWeight: 600, color: '#7a7670', textTransform: 'uppercase', letterSpacing: '0.1em' },
 };
- 
+
 // ── INTRO ──────────────────────────────────────────────────────────────────
 function Intro({ onStart }) {
   return (
@@ -146,7 +146,7 @@ function Intro({ onStart }) {
     </div>
   );
 }
- 
+
 // ── INFO ───────────────────────────────────────────────────────────────────
 function Info({ name, org, role, setName, setOrg, setRole, onStart }) {
   const ok = name.trim() && org.trim();
@@ -180,20 +180,20 @@ function Info({ name, org, role, setName, setOrg, setRole, onStart }) {
     </div>
   );
 }
- 
+
 // ── ASSESSMENT ─────────────────────────────────────────────────────────────
 function Assessment({ q, qIdx, total, progress, onAnswer, onBack, answers }) {
   const inEl   = QUESTIONS.filter(x => x.element === q.element);
   const elIdx  = inEl.indexOf(q) + 1;
   const cur    = answers[q.id];
- 
+
   return (
     <div style={S.page}>
       {/* top progress bar */}
       <div style={{ position: 'fixed', top: 0, left: 0, right: 0, height: '3px', background: 'rgba(255,255,255,0.07)', zIndex: 99 }}>
         <div style={{ height: '100%', width: `${progress}%`, background: '#c9a052', transition: 'width 0.35s ease' }} />
       </div>
- 
+
       <div style={{ ...S.center, paddingTop: '72px' }}>
         <div style={S.wrap}>
           {/* meta row */}
@@ -206,12 +206,12 @@ function Assessment({ q, qIdx, total, progress, onAnswer, onBack, answers }) {
             </div>
             <p style={{ fontSize: '0.82rem', color: '#5a5650' }}>{qIdx + 1} / {total}</p>
           </div>
- 
+
           {/* question card */}
           <div style={{ ...S.card, marginBottom: '36px', borderColor: 'rgba(201,160,82,0.12)' }}>
             <p style={{ fontSize: '1.15rem', lineHeight: 1.65, color: '#fff', fontWeight: 400 }}>{q.text}</p>
           </div>
- 
+
           {/* scale */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '44px' }}>
             {SCALE.map((label, i) => {
@@ -238,14 +238,14 @@ function Assessment({ q, qIdx, total, progress, onAnswer, onBack, answers }) {
               );
             })}
           </div>
- 
+
           <button style={{ ...S.btnOutline, fontSize: '0.8rem' }} onClick={onBack}>← Back</button>
         </div>
       </div>
     </div>
   );
 }
- 
+
 // ── SCORE BAR ──────────────────────────────────────────────────────────────
 function Bar({ label, score }) {
   const c = scoreColor(score);
@@ -261,14 +261,14 @@ function Bar({ label, score }) {
     </div>
   );
 }
- 
+
 // ── RESULTS ────────────────────────────────────────────────────────────────
 function Results({ name, org, role, elScores, total, risk, onRetake }) {
   const c = scoreColor(total);
   return (
     <div style={{ ...S.page, background: '#071628' }}>
       <div style={S.wrapWide}>
- 
+
         {/* header */}
         <div style={{ textAlign: 'center', marginBottom: '56px' }}>
           <p style={{ ...S.eyebrow, marginBottom: '16px' }}>Courage Economy Diagnostic</p>
@@ -278,7 +278,7 @@ function Results({ name, org, role, elScores, total, risk, onRetake }) {
           </p>
           <div style={{ ...S.divider, margin: '20px auto 0' }} />
         </div>
- 
+
         {/* overall score */}
         <div style={{ ...S.card, textAlign: 'center', marginBottom: '32px', borderColor: 'rgba(201,160,82,0.25)', background: 'rgba(255,255,255,0.045)' }}>
           <p style={{ ...S.eyebrow, marginBottom: '18px' }}>Overall Courage Economy Score</p>
@@ -290,7 +290,7 @@ function Results({ name, org, role, elScores, total, risk, onRetake }) {
           </p>
           <p style={{ ...S.body, maxWidth: '540px', margin: '0 auto' }}>{overallNarrative(total)}</p>
         </div>
- 
+
         {/* lie economy risk */}
         <div style={{ ...S.card, marginBottom: '32px', display: 'flex', alignItems: 'center', gap: '24px', background: risk.bg, borderColor: risk.color + '44' }}>
           <div style={{ flexShrink: 0, minWidth: '110px' }}>
@@ -305,13 +305,13 @@ function Results({ name, org, role, elScores, total, risk, onRetake }) {
             </p>
           </div>
         </div>
- 
+
         {/* five elements bars */}
         <div style={{ ...S.card, marginBottom: '40px' }}>
           <p style={{ ...S.eyebrow, marginBottom: '24px' }}>The Five Elements</p>
           {ELEMENTS.map(el => <Bar key={el} label={el} score={elScores[el]} />)}
         </div>
- 
+
         {/* element narratives */}
         <h2 style={{ ...S.h2, marginBottom: '24px' }}>Element Analysis</h2>
         <div style={{ marginBottom: '56px' }}>
@@ -331,7 +331,7 @@ function Results({ name, org, role, elScores, total, risk, onRetake }) {
             );
           })}
         </div>
- 
+
         {/* CTA */}
         <div style={{ ...S.card, textAlign: 'center', background: 'linear-gradient(135deg,rgba(201,160,82,0.1),rgba(10,31,61,0.6))', borderColor: 'rgba(201,160,82,0.25)', marginBottom: '40px' }}>
           <p style={{ ...S.eyebrow, marginBottom: '16px' }}>What comes next</p>
@@ -340,7 +340,7 @@ function Results({ name, org, role, elScores, total, risk, onRetake }) {
           <p style={{ ...S.body, maxWidth: '480px', margin: '0 auto 32px' }}>
             The Courage Economy is built one decision at a time. If this profile surfaced something worth addressing, let's talk about what closing those gaps actually looks like.
           </p>
-          <a href="https://linkedin.com/in/thanebellomo" target="_blank" rel="noopener noreferrer"
+          <a href="https://bellomoleadership.com" target="_blank" rel="noopener noreferrer"
             style={{ ...S.btnGold, display: 'inline-block', textDecoration: 'none', marginBottom: '12px' }}>
             Connect with Thane Bellomo →
           </a>
@@ -348,18 +348,18 @@ function Results({ name, org, role, elScores, total, risk, onRetake }) {
             Bellomo Leadership · Executive Coaching & Organizational Development
           </p>
         </div>
- 
+
         {/* utility buttons */}
         <div style={{ display: 'flex', gap: '14px', justifyContent: 'center' }} className="no-print">
           <button style={S.btnOutline} onClick={() => window.print()}>Print / Save PDF</button>
           <button style={S.btnOutline} onClick={onRetake}>Retake</button>
         </div>
- 
+
       </div>
     </div>
   );
 }
- 
+
 // ── EMAIL GATE ─────────────────────────────────────────────────────────────
 function EmailGate({ name, org, role, onSubmit }) {
   const [email,   setEmail]   = useState('');
@@ -368,7 +368,7 @@ function EmailGate({ name, org, role, onSubmit }) {
   const parts     = name.trim().split(' ');
   const firstName = parts[0] || '';
   const lastName  = parts.slice(1).join(' ') || '';
- 
+
   async function handleSubmit() {
     if (!email.includes('@')) { setError('Please enter a valid email address.'); return; }
     setLoading(true); setError('');
@@ -389,7 +389,7 @@ function EmailGate({ name, org, role, onSubmit }) {
       setLoading(false);
     }
   }
- 
+
   return (
     <div style={S.page}>
       <div style={S.center}>
@@ -413,6 +413,7 @@ function EmailGate({ name, org, role, onSubmit }) {
             />
             {error && <p style={{ color: '#c0392b', fontSize: '0.85rem', marginTop: '8px' }}>{error}</p>}
           </div>
+          <p style={{ fontSize: '0.78rem', color: '#4a4640', marginBottom: '28px' }}>
             By submitting, you agree to receive occasional emails from Bellomo Leadership. Unsubscribe anytime.
           </p>
           <button
@@ -426,7 +427,7 @@ function EmailGate({ name, org, role, onSubmit }) {
     </div>
   );
 }
- 
+
 // ── APP ────────────────────────────────────────────────────────────────────
 export default function App() {
   const [screen,   setScreen]   = useState('intro');
@@ -435,10 +436,10 @@ export default function App() {
   const [role,     setRole]     = useState('');
   const [answers,  setAnswers]  = useState({});
   const [qIdx,     setQIdx]     = useState(0);
- 
+
   const progress = (Object.keys(answers).length / QUESTIONS.length) * 100;
   const q        = QUESTIONS[qIdx];
- 
+
   function handleAnswer(val) {
     const next = { ...answers, [q.id]: val };
     setAnswers(next);
@@ -448,13 +449,13 @@ export default function App() {
       setScreen('email');
     }
   }
- 
+
   function reset() { setAnswers({}); setQIdx(0); setScreen('intro'); }
- 
+
   const elScores = Object.fromEntries(ELEMENTS.map(el => [el, elementScore(answers, el)]));
   const total    = overallScore(answers);
   const risk     = lieRisk(answers);
- 
+
   return (
     <>
       <Head>
@@ -464,12 +465,9 @@ export default function App() {
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
       </Head>
- 
+
       {screen === 'intro'      && <Intro onStart={() => setScreen('info')} />}
       {screen === 'info'       && <Info name={name} org={org} role={role} setName={setName} setOrg={setOrg} setRole={setRole} onStart={() => setScreen('assessment')} />}
       {screen === 'assessment' && <Assessment q={q} qIdx={qIdx} total={QUESTIONS.length} progress={progress} onAnswer={handleAnswer} onBack={() => qIdx > 0 ? setQIdx(qIdx - 1) : setScreen('info')} answers={answers} />}
       {screen === 'email'      && <EmailGate name={name} org={org} role={role} onSubmit={() => setScreen('results')} />}
-      {screen === 'results'    && <Results name={name} org={org} role={role} elScores={elScores} total={total} risk={risk} onRetake={reset} />}
-    </>
-  );
-}
+      {screen === 'results'    && <Results name={name} org={org} role={ro
