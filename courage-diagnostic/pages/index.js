@@ -413,5 +413,63 @@ function EmailGate({ name, org, role, onSubmit }) {
             />
             {error && <p style={{ color: '#c0392b', fontSize: '0.85rem', marginTop: '8px' }}>{error}</p>}
           </div>
-          <p style={{ fontSize: '0.78rem', color: '#4a4640', marginBottom: '28px' }}>
-            By sub
+            By submitting, you agree to receive occasional emails from Bellomo Leadership. Unsubscribe anytime.
+          </p>
+          <button
+            style={{ ...S.btnGold, opacity: loading ? 0.6 : 1, cursor: loading ? 'default' : 'pointer' }}
+            onClick={loading ? null : handleSubmit}
+          >
+            {loading ? 'Submitting…' : 'View My Results →'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+ 
+// ── APP ────────────────────────────────────────────────────────────────────
+export default function App() {
+  const [screen,   setScreen]   = useState('intro');
+  const [name,     setName]     = useState('');
+  const [org,      setOrg]      = useState('');
+  const [role,     setRole]     = useState('');
+  const [answers,  setAnswers]  = useState({});
+  const [qIdx,     setQIdx]     = useState(0);
+ 
+  const progress = (Object.keys(answers).length / QUESTIONS.length) * 100;
+  const q        = QUESTIONS[qIdx];
+ 
+  function handleAnswer(val) {
+    const next = { ...answers, [q.id]: val };
+    setAnswers(next);
+    if (qIdx < QUESTIONS.length - 1) {
+      setTimeout(() => setQIdx(qIdx + 1), 120);
+    } else {
+      setScreen('email');
+    }
+  }
+ 
+  function reset() { setAnswers({}); setQIdx(0); setScreen('intro'); }
+ 
+  const elScores = Object.fromEntries(ELEMENTS.map(el => [el, elementScore(answers, el)]));
+  const total    = overallScore(answers);
+  const risk     = lieRisk(answers);
+ 
+  return (
+    <>
+      <Head>
+        <title>Courage Economy Diagnostic | Bellomo Leadership</title>
+        <meta name="description" content="Assess your organization's Courage Economy — where you are, where the gaps are, and what it will cost to close them." />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+      </Head>
+ 
+      {screen === 'intro'      && <Intro onStart={() => setScreen('info')} />}
+      {screen === 'info'       && <Info name={name} org={org} role={role} setName={setName} setOrg={setOrg} setRole={setRole} onStart={() => setScreen('assessment')} />}
+      {screen === 'assessment' && <Assessment q={q} qIdx={qIdx} total={QUESTIONS.length} progress={progress} onAnswer={handleAnswer} onBack={() => qIdx > 0 ? setQIdx(qIdx - 1) : setScreen('info')} answers={answers} />}
+      {screen === 'email'      && <EmailGate name={name} org={org} role={role} onSubmit={() => setScreen('results')} />}
+      {screen === 'results'    && <Results name={name} org={org} role={role} elScores={elScores} total={total} risk={risk} onRetake={reset} />}
+    </>
+  );
+}
