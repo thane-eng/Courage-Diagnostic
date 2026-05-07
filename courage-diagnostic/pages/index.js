@@ -360,48 +360,58 @@ function Results({ name, org, role, elScores, total, risk, onRetake }) {
   );
 }
  
-// ── APP ────────────────────────────────────────────────────────────────────
-export default function App() {
-  const [screen,   setScreen]   = useState('intro');
-  const [name,     setName]     = useState('');
-  const [org,      setOrg]      = useState('');
-  const [role,     setRole]     = useState('');
-  const [answers,  setAnswers]  = useState({});
-  const [qIdx,     setQIdx]     = useState(0);
+// ── EMAIL GATE ─────────────────────────────────────────────────────────────
+function EmailGate({ name, org, role, onSubmit }) {
+  const [email,   setEmail]   = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error,   setError]   = useState('');
+  const parts     = name.trim().split(' ');
+  const firstName = parts[0] || '';
+  const lastName  = parts.slice(1).join(' ') || '';
  
-  const progress = (Object.keys(answers).length / QUESTIONS.length) * 100;
-  const q        = QUESTIONS[qIdx];
- 
-  function handleAnswer(val) {
-    const next = { ...answers, [q.id]: val };
-    setAnswers(next);
-    if (qIdx < QUESTIONS.length - 1) {
-      setTimeout(() => setQIdx(qIdx + 1), 120);
-    } else {
-      setScreen('results');
+  async function handleSubmit() {
+    if (!email.includes('@')) { setError('Please enter a valid email address.'); return; }
+    setLoading(true); setError('');
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, firstName, lastName, org, role }),
+      });
+      if (res.ok) { onSubmit(); }
+      else {
+        const d = await res.json();
+        setError(d.error || 'Something went wrong. Please try again.');
+        setLoading(false);
+      }
+    } catch {
+      setError('Something went wrong. Please try again.');
+      setLoading(false);
     }
   }
  
-  function reset() { setAnswers({}); setQIdx(0); setScreen('intro'); }
- 
-  const elScores = Object.fromEntries(ELEMENTS.map(el => [el, elementScore(answers, el)]));
-  const total    = overallScore(answers);
-  const risk     = lieRisk(answers);
- 
   return (
-    <>
-      <Head>
-        <title>Courage Economy Diagnostic | Bellomo Leadership</title>
-        <meta name="description" content="Assess your organization's Courage Economy — where you are, where the gaps are, and what it will cost to close them." />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
-      </Head>
- 
-      {screen === 'intro'      && <Intro onStart={() => setScreen('info')} />}
-      {screen === 'info'       && <Info name={name} org={org} role={role} setName={setName} setOrg={setOrg} setRole={setRole} onStart={() => setScreen('assessment')} />}
-      {screen === 'assessment' && <Assessment q={q} qIdx={qIdx} total={QUESTIONS.length} progress={progress} onAnswer={handleAnswer} onBack={() => qIdx > 0 ? setQIdx(qIdx - 1) : setScreen('info')} answers={answers} />}
-      {screen === 'results'    && <Results name={name} org={org} role={role} elScores={elScores} total={total} risk={risk} onRetake={reset} />}
-    </>
-  );
-}
+    <div style={S.page}>
+      <div style={S.center}>
+        <div style={S.wrap}>
+          <p style={{ ...S.eyebrow, marginBottom: '14px' }}>One last step</p>
+          <h2 style={S.h2}>Your results are ready.</h2>
+          <div style={S.divider} />
+          <p style={{ ...S.body, marginBottom: '36px' }}>
+            Enter your email to view your Courage Economy Profile. We'll also send you a copy for your records — no spam, no pitch sequences. Just the work.
+          </p>
+          <div style={{ marginBottom: '24px' }}>
+            <label style={S.label}>Email Address *</label>
+            <input
+              style={S.input}
+              type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              onKeyDown={e => e.key === 'Enter' && handleSubmit()}
+              placeholder="your@email.com"
+              autoFocus
+            />
+            {error && <p style={{ color: '#c0392b', fontSize: '0.85rem', marginTop: '8px' }}>{error}</p>}
+          </div>
+          <p style={{ fontSize: '0.78rem', color: '#4a4640', marginBottom: '28px' }}>
+            By sub
