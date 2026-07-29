@@ -163,6 +163,11 @@
   .cta-btn:hover { background: var(--gold-light); }
 
   .footnote { text-align: center; color: var(--gray-500); font-size: .69rem; margin-top: 22px; line-height: 1.55; padding: 0 16px; }
+
+  .skeptic-invite { margin: 28px 22px 20px; padding: 18px 22px; border-left: 3px solid #C4A87A; background: #FAF8F4; border-radius: 4px; }
+  .skeptic-invite p { margin: 0 0 10px; font-size: 0.95rem; line-height: 1.55; color: #2C3644; }
+  .skeptic-link { display: inline-block; font-weight: 700; font-size: 0.92rem; letter-spacing: 0.3px; color: #16294A; text-decoration: none; border-bottom: 2px solid #C4A87A; padding-bottom: 1px; }
+  .skeptic-link:hover { color: #C4A87A; border-bottom-color: #16294A; }
   .empty { text-align: center; padding: 40px 20px; color: var(--gray-500); }
   .empty-icon { font-size: 2.4rem; margin-bottom: 10px; }
 </style>
@@ -287,7 +292,7 @@
   </div>
 
   <p class="footnote">
-    v3 methodology: labor-based cost categories are deduplicated with a 0.65 overlap factor (the same wasted hour is never counted twice); the Courage Gap uses a nonlinear (^1.5) curve reflecting threshold effects in trust erosion; Important Work carries double weight and amplifies other dimensions as the Foundation element; all outputs are shown as ranges (±35%), not false-precision point estimates. Grounded in research from MIT Sloan Management Review, McKinsey Global Institute, Academy of Management Journal, Work Institute, SHRM, Korn Ferry, Gallup, and Paul Zak (HBR). Figures are directional industry medians, pending primary-source verification. Framework: Thane Bellomo, <em>The Courageous Organization</em>.
+    v3 methodology: labor-based cost categories are deduplicated with a 0.65 overlap factor (the same wasted hour is never counted twice); the Courage Gap uses a nonlinear (^1.5) curve reflecting threshold effects in trust erosion; Important Work carries double weight and amplifies other dimensions as the Foundation element; all outputs are shown as ranges (±35%), not false-precision point estimates. Grounded in research from MIT Sloan Management Review, McKinsey Global Institute, Academy of Management Journal, Work Institute, SHRM, Korn Ferry, Gallup, and Paul Zak (HBR). Figures are directional industry medians, pending primary-source verification. Every serious objection to this model — and our honest answers — are documented in <a href="/skeptics-appendix.pdf" target="_blank" rel="noopener">The Skeptic's Appendix</a>. Framework: Thane Bellomo, <em>The Courage Economy</em>.
   </p>
 </main>
 
@@ -498,6 +503,17 @@ function calculate() {
           ${rev > 0 ? `<div class="results-pill"><strong>${(total/rev*100).toFixed(1)}%</strong> of revenue</div>` : ''}
           <div class="results-pill">Zone: <strong>${zone.label}</strong></div>
         </div>
+      </div>
+
+      <div class="skeptic-invite">
+        <p>
+          <strong>Think this number is too high?</strong>
+          Good — that is the point. We wrote down the six strongest objections to this
+          calculator, including the ones where the objection is simply right.
+        </p>
+        <a href="/skeptics-appendix.pdf" target="_blank" rel="noopener" class="skeptic-link">
+          Read The Skeptic's Appendix →
+        </a>
       </div>
 
       <div class="note-box nb-red" style="margin-top:16px">
