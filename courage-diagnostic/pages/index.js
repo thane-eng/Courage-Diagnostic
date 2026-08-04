@@ -149,25 +149,80 @@ function Intro({ onStart }) {
 }
  
 // ── INFO ───────────────────────────────────────────────────────────────────
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '';
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+const MIN_FILL_MS = 3200;
+
 function Info({ name, org, role, email, setName, setOrg, setRole, setEmail, onStart }) {
   const [loading, setLoading] = useState(false);
-  const ok = name.trim() && org.trim() && email.includes('@');
- 
+  // Honeypot: invisible to real users, so any value in it means a bot.
+  const [hp, setHp] = useState('');
+  // Set on mount so the API can reject instant (scripted) submissions.
+  const [startedAt, setStartedAt] = useState(0);
+  const [token, setToken] = useState('');
+
+  useEffect(() => { setStartedAt(Date.now()); }, []);
+
+  // Load + render Cloudflare Turnstile. No site key set = layer stays off.
+  useEffect(() => {
+    if (!TURNSTILE_SITE_KEY) return;
+    let cancelled = false;
+    function render() {
+      if (cancelled) return;
+      const box = document.getElementById('cf-turnstile');
+      if (!window.turnstile || !box || box.dataset.rendered) return;
+      box.dataset.rendered = '1';
+      window.turnstile.render(box, {
+        sitekey: TURNSTILE_SITE_KEY,
+        callback: t => setToken(t),
+        'expired-callback': () => setToken(''),
+        'error-callback': () => setToken(''),
+      });
+    }
+    if (window.turnstile) { render(); return; }
+    let s = document.getElementById('cf-turnstile-script');
+    if (!s) {
+      s = document.createElement('script');
+      s.id = 'cf-turnstile-script';
+      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';
+      s.async = true;
+      s.defer = true;
+      document.head.appendChild(s);
+    }
+    s.addEventListener('load', render);
+    return () => { cancelled = true; s.removeEventListener('load', render); };
+  }, []);
+
+  const ok = name.trim() && org.trim() && EMAIL_RE.test(email.trim()) && (!TURNSTILE_SITE_KEY || !!token);
+
   async function handleStart() {
-    if (!ok) return;
+    if (!ok || loading) return;
     setLoading(true);
+    // If a real user was unusually quick, wait out the minimum instead of
+    // letting the server's timing check silently drop their signup.
+    const early = MIN_FILL_MS - (startedAt ? Date.now() - startedAt : 0);
+    if (early > 0) await new Promise(r => setTimeout(r, early));
     const parts = name.trim().split(' ');
     try {
       await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, firstName: parts[0] || '', lastName: parts.slice(1).join(' ') || '', org, role }),
+        body: JSON.stringify({
+          email: email.trim(),
+          firstName: parts[0] || '',
+          lastName: parts.slice(1).join(' ') || '',
+          org,
+          role,
+          hp,
+          elapsedMs: startedAt ? Date.now() - startedAt : 0,
+          token,
+        }),
       });
     } catch (e) {}
     setLoading(false);
     onStart();
   }
- 
+
   return (
     <div style={S.page}>
       <div style={S.center}>
@@ -193,7 +248,13 @@ function Info({ name, org, role, email, setName, setOrg, setRole, setEmail, onSt
               <label style={S.label}>Your Role</label>
               <input style={S.input} value={role} onChange={e => setRole(e.target.value)} placeholder="e.g., CHRO, VP of HR, Director" />
             </div>
+            {/* Honeypot. Kept off-screen rather than display:none so bots still see it. */}
+            <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}>
+              <label htmlFor="company-website">Company website</label>
+              <input id="company-website" name="company-website" type="text" tabIndex={-1} autoComplete="off" value={hp} onChange={e => setHp(e.target.value)} />
+            </div>
           </div>
+          {TURNSTILE_SITE_KEY ? <div id="cf-turnstile" style={{ marginBottom: '28px' }} /> : null}
           <button style={{ ...S.btnGold, opacity: ok ? 1 : 0.35, cursor: ok && !loading ? 'pointer' : 'default' }} onClick={handleStart}>
             {loading ? 'Starting…' : 'Start the Assessment →'}
           </button>
