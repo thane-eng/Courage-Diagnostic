@@ -3,8 +3,8 @@
 //   2. Submission timing (a human cannot complete this form instantly)
 //   3. Cloudflare Turnstile token, verified server-side
 //   4. Strict email validation + field length caps
-// Mailchimp status is 'pending', so every address must confirm by email
-// before it lands in the audience. Bots never confirm.
+// Signups go straight in as 'subscribed' (no double opt-in) so the follow-up
+// automation can reach people without an extra confirmation step.
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
 const MIN_FILL_MS = 3000;
@@ -77,7 +77,7 @@ export default async function handler(req, res) {
       headers: { 'Content-Type': 'application/json', Authorization: 'Basic ' + auth },
       body: JSON.stringify({
         email_address: address,
-        status: 'pending',
+        status: 'subscribed',
         merge_fields: {
           FNAME: clean(firstName),
           LNAME: clean(lastName),
