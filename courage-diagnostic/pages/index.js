@@ -259,7 +259,7 @@ function Info({ name, org, role, email, setName, setOrg, setRole, setEmail, onSt
             {loading ? 'Starting…' : 'Start the Assessment →'}
           </button>
           <p style={{ fontSize: '0.75rem', color: '#3a3630', marginTop: '16px' }}>
-            By continuing, you agree to receive occasional emails from Bellomo Leadership. Check your inbox for a confirmation link. Unsubscribe anytime.
+            By continuing, you agree to receive occasional emails from Bellomo Leadership. Unsubscribe anytime.
           </p>
         </div>
       </div>
