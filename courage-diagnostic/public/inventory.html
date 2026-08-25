@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="A 37-statement leadership self-assessment from The Courage Economy by Thane Bellomo.">
+<title>The Lie Economy Inventory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;450;500;600&display=swap">
+<style>
+:root{ --paper:#EEF1F3; --surface:#FFFFFF; --surface-2:#F7F9FA; --ink:#12171A; --ink-2:#3D4A51; --ink-3:#6B7A82; --rule:#D3DCE1; --rule-2:#E4EAEE; --debit:#9E2B25; --debit-soft:#F3E2E0; --credit:#2C6355; --credit-soft:#DFEBE7; --focus:#1F5F8B; --band-1:#9E2B25; --band-2:#A8642A; --band-3:#4A6B7C; --band-4:#2C6355;}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){ --paper:#101416; --surface:#171D20; --surface-2:#1D2427; --ink:#E9EEF1; --ink-2:#B3C0C7; --ink-3:#7F8E96; --rule:#2B3438; --rule-2:#222A2E; --debit:#DB6F68; --debit-soft:#33211F; --credit:#6FB3A0; --credit-soft:#1B2A27; --focus:#6FA8CE; --band-1:#DB6F68; --band-2:#D0975A; --band-3:#8AAEC1; --band-4:#6FB3A0; }}
+:root[data-theme="dark"]{ --paper:#101416; --surface:#171D20; --surface-2:#1D2427; --ink:#E9EEF1; --ink-2:#B3C0C7; --ink-3:#7F8E96; --rule:#2B3438; --rule-2:#222A2E; --debit:#DB6F68; --debit-soft:#33211F; --credit:#6FB3A0; --credit-soft:#1B2A27; --focus:#6FA8CE; --band-1:#DB6F68; --band-2:#D0975A; --band-3:#8AAEC1; --band-4:#6FB3A0;}
+*{box-sizing:border-box}
+body{ margin:0; background:var(--paper); color:var(--ink); font-family:"IBM Plex Sans",system-ui,-apple-system,Segoe UI,sans-serif; font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 160px}
+/* ---------- masthead ---------- */
+.mast{padding:64px 0 0}
+.eyebrow{ font-family:"IBM Plex Mono",ui-monospace,monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink-3); margin:0 0 18px;}
+h1{ font-family:Newsreader,Georgia,serif; font-weight:500; font-size:clamp(2.4rem,7vw,3.6rem); line-height:1.04; letter-spacing:-.015em; margin:0; text-wrap:balance;}
+.dek{ font-family:Newsreader,Georgia,serif; font-size:1.24rem; line-height:1.5; color:var(--ink-2); margin:20px 0 0; max-width:60ch;}
+.rule-heavy{height:2px;background:var(--ink);margin:34px 0 0;opacity:.85}
+.intro{margin:32px 0 0;display:flex;flex-direction:column;gap:14px}
+.intro p{margin:0;max-width:66ch;color:var(--ink-2)}
+.intro strong{color:var(--ink);font-weight:600}
+.mirror{ font-family:Newsreader,Georgia,serif;font-style:italic;font-size:1.35rem; color:var(--ink);margin:6px 0;}
+.note{ border-left:3px solid var(--debit); background:var(--surface); padding:18px 20px; display:flex; flex-direction:column; gap:8px;}
+.note h3{ font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.14em; text-transform:uppercase;color:var(--debit);margin:0;font-weight:600;}
+.note p{margin:0;font-size:.95rem;color:var(--ink-2)}
+.legend{ margin:36px 0 0;border:1px solid var(--rule);background:var(--surface);}
+.legend h3{ font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.14em; text-transform:uppercase;color:var(--ink-3);margin:0;padding:12px 18px; border-bottom:1px solid var(--rule);font-weight:600;}
+.legend ol{margin:0;padding:6px 0;list-style:none}
+.legend li{ display:flex;gap:14px;align-items:baseline;padding:7px 18px;font-size:.94rem;color:var(--ink-2);}
+.legend b{ font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:600;color:var(--ink); font-size:.9rem;min-width:1.2em;font-variant-numeric:tabular-nums;}
+/* ---------- blocks ---------- */
+.block{margin:56px 0 0}
+.bhead{border-bottom:2px solid var(--ink);padding-bottom:10px}
+.btitle{display:flex;align-items:baseline;gap:12px}
+.bmark{ font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.78rem;font-weight:600; color:var(--debit);letter-spacing:.08em;}
+.bhead h2{ font-family:Newsreader,Georgia,serif;font-weight:500;font-size:1.72rem;margin:0;letter-spacing:-.01em;}
+.bq{margin:6px 0 0;font-size:.93rem;color:var(--ink-3)}
+.colhead{ display:flex;justify-content:space-between;align-items:center;gap:10px; font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10px;letter-spacing:.1em; text-transform:uppercase;color:var(--ink-3);padding:9px 2px;border-bottom:1px solid var(--rule-2);}
+.colhead span:nth-child(2){letter-spacing:.02em}
+.row{ display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:center; padding:14px 2px;border-bottom:1px solid var(--rule-2);transition:background .15s ease;}
+.row.done{background:var(--surface-2)}
+.num{ font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.78rem;color:var(--ink-3); font-variant-numeric:tabular-nums;align-self:start;padding-top:3px;}
+.row.done .num{color:var(--debit)}
+.stmt{font-size:.97rem;line-height:1.5;max-width:52ch}
+.scale{display:flex;gap:5px;border:0;margin:0;padding:0}
+.cell{position:relative;cursor:pointer}
+.cell input{position:absolute;opacity:0;width:0;height:0}
+.cell span{ display:grid;place-items:center;width:34px;height:34px; border:1px solid var(--rule);background:var(--surface); font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.86rem;color:var(--ink-3); transition:all .12s ease;font-variant-numeric:tabular-nums;}
+.cell:hover span{border-color:var(--ink-3);color:var(--ink)}
+.cell input:checked+span{background:var(--ink);border-color:var(--ink);color:var(--paper);font-weight:600}
+.cell input:focus-visible+span{outline:2px solid var(--focus);outline-offset:2px}
+/* ---------- sticky balance ---------- */
+.balance{ position:fixed;left:0;right:0;bottom:0;z-index:20; background:var(--surface);border-top:2px solid var(--ink);}
+.balance-in{ max-width:760px;margin:0 auto;padding:12px 20px; display:flex;align-items:center;gap:16px;}
+.tally{ font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.8rem;color:var(--ink-3); font-variant-numeric:tabular-nums;white-space:nowrap;}
+.tally b{color:var(--ink);font-weight:600}
+.meter{flex:1;height:3px;background:var(--rule);position:relative;overflow:hidden}
+.meter i{position:absolute;inset:0 auto 0 0;width:0;background:var(--debit);transition:width .25s ease}
+.btn{ font-family:"IBM Plex Sans",system-ui,sans-serif;font-size:.88rem;font-weight:500; padding:10px 18px;border:1px solid var(--ink);background:var(--ink);color:var(--paper); cursor:pointer;transition:opacity .15s ease;white-space:nowrap;}
+.btn:hover{opacity:.84}
+.btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.btn[disabled]{opacity:.3;cursor:not-allowed}
+.btn.ghost{background:transparent;color:var(--ink)}
+/* ---------- results ---------- */
+.results{display:none;margin:56px 0 0;scroll-margin-top:24px}
+.results.on{display:block}
+.rhead{border-top:2px solid var(--ink);padding-top:30px}
+.score-line{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.score{ font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:clamp(3.2rem,12vw,5rem); font-weight:500;line-height:.9;letter-spacing:-.03em;font-variant-numeric:tabular-nums;}
+.outof{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:1rem;color:var(--ink-3);padding-bottom:8px}
+.band{ font-family:Newsreader,Georgia,serif;font-weight:500;font-size:clamp(1.7rem,5vw,2.3rem); margin:22px 0 0;line-height:1.15;text-wrap:balance;}
+.band-copy{margin:14px 0 0;color:var(--ink-2);max-width:62ch;font-size:1.02rem}
+.pillars{margin:44px 0 0;border-top:1px solid var(--rule)}
+.pillars h3{ font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.14em; text-transform:uppercase;color:var(--ink-3);margin:20px 0 4px;font-weight:600;}
+.pillars .sub{margin:0 0 18px;font-size:.9rem;color:var(--ink-3)}
+.pbar{display:grid;grid-template-columns:130px 1fr 52px;gap:14px;align-items:center;padding:9px 0}
+.pbar .pn{font-size:.92rem;font-weight:450}
+.pbar .track{height:8px;background:var(--rule);position:relative;overflow:hidden}
+.pbar .track i{position:absolute;inset:0 auto 0 0;background:var(--ink-3);transition:width .5s ease}
+.pbar.weak .track i{background:var(--debit)}
+.pbar.weak .pn{color:var(--debit);font-weight:600}
+.pbar .pv{ font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.82rem;color:var(--ink-2); text-align:right;font-variant-numeric:tabular-nums;}
+.weakest{margin:18px 0 0;font-size:.95rem;color:var(--ink-2);border-left:3px solid var(--debit);padding-left:14px}
+.gap{margin:48px 0 0;background:var(--surface);border:1px solid var(--rule);padding:26px 24px}
+.gap h3{font-family:Newsreader,Georgia,serif;font-weight:500;font-size:1.5rem;margin:0}
+.gap p{margin:12px 0 0;color:var(--ink-2);max-width:60ch;font-size:.98rem}
+.gap .acts{display:flex;gap:10px;margin:20px 0 0;flex-wrap:wrap}
+.colophon{ margin:60px 0 0;border-top:1px solid var(--rule);padding-top:22px; font-size:.86rem;color:var(--ink-3);display:flex;flex-direction:column;gap:8px;}
+.colophon a{color:var(--ink-2)}
+@media(max-width:620px){ .row{grid-template-columns:26px 1fr;gap:10px} .scale{grid-column:1/-1;justify-content:space-between;padding-left:36px} .cell span{width:42px;height:38px} .pbar{grid-template-columns:100px 1fr 46px;gap:10px} .colhead span:nth-child(2){display:none}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{ .balance,.gap .acts{display:none} body{background:#fff}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="mast">
+  <p class="eyebrow">The Courage Economy &nbsp;·&nbsp; Chapter 16</p>
+  <h1>The Lie&nbsp;Economy Inventory</h1>
+  <p class="dek">Thirty-seven statements. Answer them the way things actually are, not the way you have described them to your boss.</p>
+  <div class="rule-heavy"></div>
+</header>
+<div class="intro">
+  <p>This is not a personality test. It is not a development tool designed to make you feel good about your &ldquo;growth areas.&rdquo;</p>
+  <p>Answer with brutal honesty. Not how you wish things were. How they <strong>actually are</strong>. If you find yourself rationalizing, qualifying, or adding &ldquo;but&rdquo; to your answer &mdash; that is The Will talking. Pay attention to it.</p>
+  <p class="mirror">This inventory is a mirror.</p>
+  <div class="note">
+    <h3>Before you begin</h3>
+    <p>Do not take this alone. Take it, then ask your people to take it <em>about you</em>. Then compare. If there is a significant gap between how you scored yourself and how they scored you, that gap is your Lie Economy &mdash; the distance between the story you are telling yourself and the truth.</p>
+  </div>
+</div>
+<div class="legend">
+  <h3>Score each statement</h3>
+  <ol>
+    <li><b>1</b> This is absolutely true in my organization</li>
+    <li><b>2</b> This is mostly true</li>
+    <li><b>3</b> This is sometimes true</li>
+    <li><b>4</b> This is rarely true</li>
+    <li><b>5</b> This is not true at all</li>
+  </ol>
+</div>
+<form id="inv">
+<section class="block" id="p0"><header class="bhead"><div class="btitle"><span class="bmark">1</span><h2>Important Work</h2></div><p class="bq">Do people believe the work matters?</p></header><div class="colhead"><span>absolutely true</span><span aria-hidden="true">1 &nbsp;2 &nbsp;3 &nbsp;4 &nbsp;5</span><span>not true at all</span></div><div class="row" data-q="1" data-pillar="0"><div class="num">01</div><div class="stmt">I have assigned my team to work on projects that I knew were not important because we needed to look like we were doing something.</div><fieldset class="scale"><legend class="sr">Statement 1</legend><label class="cell"><input type="radio" name="q1" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q1" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q1" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q1" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q1" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="2" data-pillar="0"><div class="num">02</div><div class="stmt">I have sold unimportant work to my team as critical or transformational when I knew it was neither.</div><fieldset class="scale"><legend class="sr">Statement 2</legend><label class="cell"><input type="radio" name="q2" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q2" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q2" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q2" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q2" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="3" data-pillar="0"><div class="num">03</div><div class="stmt">My team is currently working on something that exists primarily to make my department look valuable, not because it solves a real problem.</div><fieldset class="scale"><legend class="sr">Statement 3</legend><label class="cell"><input type="radio" name="q3" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q3" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q3" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q3" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q3" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="4" data-pillar="0"><div class="num">04</div><div class="stmt">I have created teams or initiatives that were designed to produce a deliverable rather than to solve a root-cause problem.</div><fieldset class="scale"><legend class="sr">Statement 4</legend><label class="cell"><input type="radio" name="q4" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q4" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q4" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q4" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q4" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="5" data-pillar="0"><div class="num">05</div><div class="stmt">If I asked my team - honestly and without consequence - whether they believe the work they are doing is important, I would not like the answer.</div><fieldset class="scale"><legend class="sr">Statement 5</legend><label class="cell"><input type="radio" name="q5" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q5" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q5" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q5" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q5" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="6" data-pillar="0"><div class="num">06</div><div class="stmt">I have continued a project or initiative that I knew was failing because admitting failure would make me or my department look bad.</div><fieldset class="scale"><legend class="sr">Statement 6</legend><label class="cell"><input type="radio" name="q6" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q6" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q6" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q6" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q6" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="7" data-pillar="0"><div class="num">07</div><div class="stmt">I have stripped autonomy from a team by predetermining the solution and asking them to execute rather than solve.</div><fieldset class="scale"><legend class="sr">Statement 7</legend><label class="cell"><input type="radio" name="q7" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q7" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q7" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q7" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q7" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="8" data-pillar="0"><div class="num">08</div><div class="stmt">When my team has told me the work is not important or the approach won’t work, I have dismissed or ignored their input.</div><fieldset class="scale"><legend class="sr">Statement 8</legend><label class="cell"><input type="radio" name="q8" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q8" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q8" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q8" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q8" value="5"><span>5</span></label></fieldset></div></section><section class="block" id="p1"><header class="bhead"><div class="btitle"><span class="bmark">2</span><h2>Curiosity</h2></div><p class="bq">Can people ask why?</p></header><div class="colhead"><span>absolutely true</span><span aria-hidden="true">1 &nbsp;2 &nbsp;3 &nbsp;4 &nbsp;5</span><span>not true at all</span></div><div class="row" data-q="9" data-pillar="1"><div class="num">09</div><div class="stmt">When someone on my team asks “Why are we doing it this way?” my honest first reaction is defensiveness.</div><fieldset class="scale"><legend class="sr">Statement 9</legend><label class="cell"><input type="radio" name="q9" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q9" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q9" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q9" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q9" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="10" data-pillar="1"><div class="num">10</div><div class="stmt">I have discouraged questions about decisions I’ve already made because I didn’t want to reopen the discussion.</div><fieldset class="scale"><legend class="sr">Statement 10</legend><label class="cell"><input type="radio" name="q10" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q10" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q10" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q10" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q10" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="11" data-pillar="1"><div class="num">11</div><div class="stmt">There are topics or decisions in my organization that people know not to ask about.</div><fieldset class="scale"><legend class="sr">Statement 11</legend><label class="cell"><input type="radio" name="q11" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q11" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q11" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q11" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q11" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="12" data-pillar="1"><div class="num">12</div><div class="stmt">I have punished or sidelined someone - formally or informally - for asking too many questions or challenging the status quo.</div><fieldset class="scale"><legend class="sr">Statement 12</legend><label class="cell"><input type="radio" name="q12" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q12" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q12" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q12" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q12" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="13" data-pillar="1"><div class="num">13</div><div class="stmt">I have pretended to solicit input from my team when the decision was already made.</div><fieldset class="scale"><legend class="sr">Statement 13</legend><label class="cell"><input type="radio" name="q13" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q13" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q13" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q13" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q13" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="14" data-pillar="1"><div class="num">14</div><div class="stmt">I say I have an “open door policy” but there are things my people will not tell me. And I know it.</div><fieldset class="scale"><legend class="sr">Statement 14</legend><label class="cell"><input type="radio" name="q14" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q14" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q14" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q14" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q14" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="15" data-pillar="1"><div class="num">15</div><div class="stmt">When presented with information that contradicts my position, my first instinct is to discredit the source rather than examine the information.</div><fieldset class="scale"><legend class="sr">Statement 15</legend><label class="cell"><input type="radio" name="q15" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q15" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q15" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q15" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q15" value="5"><span>5</span></label></fieldset></div></section><section class="block" id="p2"><header class="bhead"><div class="btitle"><span class="bmark">3</span><h2>Challenge</h2></div><p class="bq">Can people disagree with you?</p></header><div class="colhead"><span>absolutely true</span><span aria-hidden="true">1 &nbsp;2 &nbsp;3 &nbsp;4 &nbsp;5</span><span>not true at all</span></div><div class="row" data-q="16" data-pillar="2"><div class="num">16</div><div class="stmt">In my team meetings, disagreement is rare.</div><fieldset class="scale"><legend class="sr">Statement 16</legend><label class="cell"><input type="radio" name="q16" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q16" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q16" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q16" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q16" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="17" data-pillar="2"><div class="num">17</div><div class="stmt">I have labeled someone as “not a team player” because they disagreed with me or pushed back on a decision.</div><fieldset class="scale"><legend class="sr">Statement 17</legend><label class="cell"><input type="radio" name="q17" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q17" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q17" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q17" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q17" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="18" data-pillar="2"><div class="num">18</div><div class="stmt">I need to be seen as the person who came up with the idea, even when I didn’t.</div><fieldset class="scale"><legend class="sr">Statement 18</legend><label class="cell"><input type="radio" name="q18" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q18" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q18" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q18" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q18" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="19" data-pillar="2"><div class="num">19</div><div class="stmt">I have made it clear - through words, tone, or consequences - that challenging my decisions is unwelcome.</div><fieldset class="scale"><legend class="sr">Statement 19</legend><label class="cell"><input type="radio" name="q19" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q19" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q19" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q19" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q19" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="20" data-pillar="2"><div class="num">20</div><div class="stmt">The people in my inner circle usually agree with me.</div><fieldset class="scale"><legend class="sr">Statement 20</legend><label class="cell"><input type="radio" name="q20" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q20" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q20" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q20" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q20" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="21" data-pillar="2"><div class="num">21</div><div class="stmt">When my team does disagree, I listen politely and then do what I was going to do anyway.</div><fieldset class="scale"><legend class="sr">Statement 21</legend><label class="cell"><input type="radio" name="q21" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q21" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q21" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q21" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q21" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="22" data-pillar="2"><div class="num">22</div><div class="stmt">I have never asked my team “Tell me why this is a dumb idea.” Or if I have, I didn’t actually want to hear the answer.</div><fieldset class="scale"><legend class="sr">Statement 22</legend><label class="cell"><input type="radio" name="q22" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q22" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q22" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q22" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q22" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="23" data-pillar="2"><div class="num">23</div><div class="stmt">The last time someone directly challenged me, it did not go well for them.</div><fieldset class="scale"><legend class="sr">Statement 23</legend><label class="cell"><input type="radio" name="q23" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q23" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q23" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q23" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q23" value="5"><span>5</span></label></fieldset></div></section><section class="block" id="p3"><header class="bhead"><div class="btitle"><span class="bmark">4</span><h2>Trust</h2></div><p class="bq">Would your people say you are straight with them?</p></header><div class="colhead"><span>absolutely true</span><span aria-hidden="true">1 &nbsp;2 &nbsp;3 &nbsp;4 &nbsp;5</span><span>not true at all</span></div><div class="row" data-q="24" data-pillar="3"><div class="num">24</div><div class="stmt">There are things happening in my organization that I am not transparent about, and my rationale for that secrecy would not survive honest scrutiny.</div><fieldset class="scale"><legend class="sr">Statement 24</legend><label class="cell"><input type="radio" name="q24" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q24" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q24" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q24" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q24" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="25" data-pillar="3"><div class="num">25</div><div class="stmt">I have taken credit for work that was not mine, or allowed credit to be attributed to me without correcting it.</div><fieldset class="scale"><legend class="sr">Statement 25</legend><label class="cell"><input type="radio" name="q25" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q25" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q25" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q25" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q25" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="26" data-pillar="3"><div class="num">26</div><div class="stmt">I have promoted someone who was not the most deserving candidate because of personal loyalty, political considerations, or convenience.</div><fieldset class="scale"><legend class="sr">Statement 26</legend><label class="cell"><input type="radio" name="q26" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q26" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q26" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q26" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q26" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="27" data-pillar="3"><div class="num">27</div><div class="stmt">I have avoided giving someone honest feedback because I didn’t want to deal with the discomfort.</div><fieldset class="scale"><legend class="sr">Statement 27</legend><label class="cell"><input type="radio" name="q27" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q27" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q27" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q27" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q27" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="28" data-pillar="3"><div class="num">28</div><div class="stmt">I have told my team one thing and my boss another about the same situation.</div><fieldset class="scale"><legend class="sr">Statement 28</legend><label class="cell"><input type="radio" name="q28" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q28" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q28" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q28" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q28" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="29" data-pillar="3"><div class="num">29</div><div class="stmt">If my team could see every email I’ve sent and hear every conversation I’ve had about them, some of them would feel betrayed.</div><fieldset class="scale"><legend class="sr">Statement 29</legend><label class="cell"><input type="radio" name="q29" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q29" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q29" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q29" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q29" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="30" data-pillar="3"><div class="num">30</div><div class="stmt">I have made promises to my team - about resources, support, recognition, or direction - that I did not keep, and I did not adequately explain why.</div><fieldset class="scale"><legend class="sr">Statement 30</legend><label class="cell"><input type="radio" name="q30" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q30" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q30" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q30" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q30" value="5"><span>5</span></label></fieldset></div></section><section class="block" id="p4"><header class="bhead"><div class="btitle"><span class="bmark">5</span><h2>Community</h2></div><p class="bq">Do they work for each other, or for a paycheck?</p></header><div class="colhead"><span>absolutely true</span><span aria-hidden="true">1 &nbsp;2 &nbsp;3 &nbsp;4 &nbsp;5</span><span>not true at all</span></div><div class="row" data-q="31" data-pillar="4"><div class="num">31</div><div class="stmt">I have used the word “family” or “team” to describe my organization while behaving in ways that are fundamentally inconsistent with those words.</div><fieldset class="scale"><legend class="sr">Statement 31</legend><label class="cell"><input type="radio" name="q31" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q31" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q31" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q31" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q31" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="32" data-pillar="4"><div class="num">32</div><div class="stmt">I have expected loyalty from my people without earning it through my own actions.</div><fieldset class="scale"><legend class="sr">Statement 32</legend><label class="cell"><input type="radio" name="q32" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q32" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q32" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q32" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q32" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="33" data-pillar="4"><div class="num">33</div><div class="stmt">I have hosted team-building events or recognition programs while fundamental trust issues in my organization remain unaddressed.</div><fieldset class="scale"><legend class="sr">Statement 33</legend><label class="cell"><input type="radio" name="q33" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q33" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q33" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q33" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q33" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="34" data-pillar="4"><div class="num">34</div><div class="stmt">My people would not say they feel genuinely valued by me.</div><fieldset class="scale"><legend class="sr">Statement 34</legend><label class="cell"><input type="radio" name="q34" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q34" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q34" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q34" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q34" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="35" data-pillar="4"><div class="num">35</div><div class="stmt">If given the opportunity to leave with no consequences, a meaningful number of my team would do so.</div><fieldset class="scale"><legend class="sr">Statement 35</legend><label class="cell"><input type="radio" name="q35" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q35" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q35" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q35" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q35" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="36" data-pillar="4"><div class="num">36</div><div class="stmt">I have laid off, reorganized, or made decisions that significantly impacted my people’s lives without being honest about the real reasons.</div><fieldset class="scale"><legend class="sr">Statement 36</legend><label class="cell"><input type="radio" name="q36" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q36" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q36" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q36" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q36" value="5"><span>5</span></label></fieldset></div><div class="row" data-q="37" data-pillar="4"><div class="num">37</div><div class="stmt">The bonds in my team exist in spite of my leadership, not because of it.</div><fieldset class="scale"><legend class="sr">Statement 37</legend><label class="cell"><input type="radio" name="q37" value="1"><span>1</span></label><label class="cell"><input type="radio" name="q37" value="2"><span>2</span></label><label class="cell"><input type="radio" name="q37" value="3"><span>3</span></label><label class="cell"><input type="radio" name="q37" value="4"><span>4</span></label><label class="cell"><input type="radio" name="q37" value="5"><span>5</span></label></fieldset></div></section>
+</form>
+<section class="results" id="results" aria-live="polite">
+  <div class="rhead">
+    <p class="eyebrow">Your result</p>
+    <div class="score-line">
+      <div class="score" id="score">&mdash;</div>
+      <div class="outof">/ 185</div>
+    </div>
+    <h2 class="band" id="band"></h2>
+    <p class="band-copy" id="bandCopy"></p>
+  </div>
+  <div class="pillars">
+    <h3>By pillar</h3>
+    <p class="sub">Each pillar shown as a percentage of its possible score. Higher is healthier.</p>
+    <div id="pbars"></div>
+    <p class="weakest" id="weakest"></p>
+  </div>
+  <div class="gap">
+    <h3>The gap is the point</h3>
+    <p>The most valuable thing here is not your score. It is the gap between your score and your team&rsquo;s. That gap is the Lie Economy made visible. If the gap is small, you have something to build on. If it is large, you have something to reckon with. Either way &mdash; now you know.</p>
+    <p>And once you know, you can no longer pretend you don&rsquo;t know.</p>
+    <div class="acts">
+      <button class="btn" id="copyLink" type="button">Copy link for your team</button>
+      <button class="btn ghost" id="printBtn" type="button">Print your results</button>
+      <button class="btn ghost" id="resetBtn" type="button">Start over</button>
+    </div>
+  </div>
+  <div class="colophon">
+    <p>Adapted from <em>The Courage Economy</em> by Thane Bellomo, Chapter 16: The Lie Economy Audit.</p>
+    <p>Your answers stay in this browser. Nothing is sent anywhere.</p>
+  </div>
+</section>
+</div>
+<div class="balance">
+  <div class="balance-in">
+    <div class="tally"><b id="answered">0</b> of 37 answered</div>
+    <div class="meter"><i id="meterFill"></i></div>
+    <button class="btn" id="revealBtn" type="button" disabled>Reveal score</button>
+  </div>
+</div>
+<script>
+(function(){
+  var PILLARS=["Important Work","Curiosity","Challenge","Trust","Community"];
+  var COUNTS=[8,7,8,7,7];
+  var TOTAL=37, MAXS=185, KEY="lei.v1";
+  var BANDS=[
+    {min:37,max:74,name:"Your Lie Economy is thriving.", copy:"You are actively maintaining a culture where lies are the currency and truth is a liability. This is not a judgment of your character. It is a description of the system you have built and are maintaining. The good news is that systems can be changed.",v:"--band-1"},
+    {min:75,max:111,name:"You are living in the gray.", copy:"You know something is wrong. You can feel it. But you have rationalized enough of it to keep going. This is where most leaders live — aware enough to be uncomfortable, but not courageous enough to act. The danger of the gray is that it feels sustainable. It is not.",v:"--band-2"},
+    {min:112,max:148,name:"You are closer than you think.", copy:"You have the instincts, and maybe even some of the practices, of a Courage Economy leader. But there are gaps. And those gaps are where your Lie Economy lives.",v:"--band-3"},
+    {min:149,max:185,name:"You may already be building a Courage Economy.", copy:"But do not congratulate yourself yet. Take this assessment and then give it to your people. If their scores match yours, you are building something real. If their scores are significantly different, that gap is the most important data point you will get.",v:"--band-4"}
+  ];
+  var form=document.getElementById("inv");
+  var rows=Array.prototype.slice.call(form.querySelectorAll(".row"));
+  var answeredEl=document.getElementById("answered");
+  var fill=document.getElementById("meterFill");
+  var reveal=document.getElementById("revealBtn");
+  var results=document.getElementById("results");
+  function store(o){try{localStorage.setItem(KEY,JSON.stringify(o));}catch(e){}}
+  function load(){try{var r=localStorage.getItem(KEY);return r?JSON.parse(r):{};}catch(e){return {};}}
+  function collect(){
+    var out={};
+    rows.forEach(function(r){ var c=r.querySelector("input:checked"); if(c) out[r.dataset.q]=+c.value; });
+    return out;
+  }
+  function refresh(save){
+    var a=collect(), n=Object.keys(a).length;
+    rows.forEach(function(r){ r.classList.toggle("done", a[r.dataset.q]!==undefined); });
+    answeredEl.textContent=n;
+    fill.style.width=(n/TOTAL*100)+"%";
+    reveal.disabled = n<TOTAL;
+    if(save!==false) store(a);
+    return a;
+  }
+  function bandFor(s){
+    for(var i=0;i<BANDS.length;i++){ if(s>=BANDS[i].min && s<=BANDS[i].max) return BANDS[i]; }
+    return BANDS[BANDS.length-1];
+  }
+  function render(){
+    var a=collect();
+    var total=0;
+    Object.keys(a).forEach(function(k){ total+=a[k]; });
+    var b=bandFor(total);
+    document.getElementById("score").textContent=total;
+    document.getElementById("score").style.color="var("+b.v+")";
+    var bandEl=document.getElementById("band");
+    bandEl.textContent=b.name;
+    bandEl.style.color="var("+b.v+")";
+    document.getElementById("bandCopy").textContent=b.copy;
+    var host=document.getElementById("pbars");
+    host.innerHTML="";
+    var pct=[]; var sums=[0,0,0,0,0];
+    rows.forEach(function(r){ var p=+r.dataset.pillar, v=a[r.dataset.q]||0; sums[p]+=v; });
+    var lowest=101;
+    for(var i=0;i<5;i++){
+      var max=COUNTS[i]*5;
+      var pv=Math.round(sums[i]/max*100);
+      pct.push(pv);
+      if(pv<lowest) lowest=pv;
+    }
+    var low=[];
+    for(var k=0;k<5;k++){ if(pct[k]===lowest) low.push(k); }
+    var flagged = low.length<=2;
+    for(var j=0;j<5;j++){
+      var d=document.createElement("div");
+      d.className="pbar"+(flagged&&low.indexOf(j)>-1?" weak":"");
+      d.innerHTML='<div class="pn">'+PILLARS[j]+'</div>'+
+        '<div class="track"><i style="width:'+pct[j]+'%"></i></div>'+
+        '<div class="pv">'+pct[j]+'%</div>';
+      host.appendChild(d);
+    }
+    var names=low.map(function(i){return PILLARS[i];});
+    var msg;
+    if(low.length===1){ msg="Your weakest pillar is "+names[0]+". That is where your Lie Economy is doing the most work — and the most useful place to start."; }
+    else if(low.length===2){ msg=names[0]+" and "+names[1]+" are tied at your lowest score. Either is a defensible place to start; pick the one your team would name first."; }
+    else if(low.length===5){ msg="Your five pillars scored evenly. That is unusual — and worth testing. Give this to your people and see whether their answers are as even as yours."; }
+    else { msg="Several pillars are tied at your lowest score: "+names.slice(0,-1).join(", ")+" and "+names[names.length-1]+". Start with whichever one your team would name first."; }
+    document.getElementById("weakest").textContent=msg;
+    results.classList.add("on");
+    results.scrollIntoView({behavior:"smooth",block:"start"});
+  }
+  form.addEventListener("change",function(){ refresh(true); });
+  reveal.addEventListener("click",render);
+  document.getElementById("printBtn").addEventListener("click",function(){window.print();});
+  document.getElementById("resetBtn").addEventListener("click",function(){
+    form.reset();
+    try{localStorage.removeItem(KEY);}catch(e){}
+    results.classList.remove("on");
+    refresh(false);
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
+  document.getElementById("copyLink").addEventListener("click",function(){
+    var btn=this, url=location.href;
+    var done=function(){ btn.textContent="Link copied"; setTimeout(function(){btn.textContent="Copy link for your team";},1800); };
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(url).then(done,function(){btn.textContent="Press Ctrl+C to copy";});
+    } else {
+      var t=document.createElement("textarea");
+      t.value=url; document.body.appendChild(t); t.select();
+      try{document.execCommand("copy");done();}catch(e){btn.textContent="Press Ctrl+C to copy";}
+      document.body.removeChild(t);
+    }
+  });
+  var saved=load();
+  Object.keys(saved).forEach(function(q){
+    var el=form.querySelector('input[name="q'+q+'"][value="'+saved[q]+'"]');
+    if(el) el.checked=true;
+  });
+  refresh(false);
+})();
+</script>
+</body>
+</html>
