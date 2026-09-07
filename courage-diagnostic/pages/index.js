@@ -125,6 +125,16 @@ const S = {
   label:      { display: 'block', marginBottom: '8px', fontSize: '0.8rem', fontWeight: 600, color: '#7a7670', textTransform: 'uppercase', letterSpacing: '0.1em' },
 };
  
+const COPYRIGHT = '© 2026 Bellomo Leadership LLC. All rights reserved. This instrument is proprietary. Unauthorized copying, distribution, or reuse is prohibited.';
+
+function LegalNotice({ style }) {
+  return (
+    <p style={{ fontSize: '0.7rem', lineHeight: 1.6, color: '#4a4640', maxWidth: '460px', margin: '36px auto 0', ...style }}>
+      {COPYRIGHT}
+    </p>
+  );
+}
+
 // ── INTRO ──────────────────────────────────────────────────────────────────
 function Intro({ onStart }) {
   return (
@@ -139,9 +149,10 @@ function Intro({ onStart }) {
           </p>
           <p style={{ fontSize: '0.85rem', color: '#5a5650', marginBottom: '44px' }}>35 questions · 15–20 minutes · Confidential</p>
           <button style={S.btnGold} onClick={onStart}>Begin the Diagnostic →</button>
-          <p style={{ fontSize: '0.75rem', color: '#3a3630', marginTop: '36px' }}>
+          <p style={{ fontSize: '0.75rem', color: '#5a5650', marginTop: '36px' }}>
             A Bellomo Leadership Assessment Tool · Based on The Courageous Organization framework
           </p>
+          <LegalNotice />
         </div>
       </div>
     </div>
@@ -261,6 +272,7 @@ function Info({ name, org, role, email, setName, setOrg, setRole, setEmail, onSt
           <p style={{ fontSize: '0.75rem', color: '#3a3630', marginTop: '16px' }}>
             By continuing, you agree to receive occasional emails from Bellomo Leadership. Unsubscribe anytime.
           </p>
+          <LegalNotice style={{ marginTop: '28px' }} />
         </div>
       </div>
     </div>
@@ -326,6 +338,7 @@ function Assessment({ q, qIdx, total, progress, onAnswer, onBack, answers }) {
           </div>
  
           <button style={{ ...S.btnOutline, fontSize: '0.8rem' }} onClick={onBack}>← Back</button>
+          <LegalNotice style={{ marginTop: '48px' }} />
         </div>
       </div>
     </div>
@@ -468,9 +481,10 @@ function Results({ name, org, role, email, elScores, total, risk, onRetake }) {
             style={{ ...S.btnGold, display: 'inline-block', textDecoration: 'none', marginBottom: '12px' }}>
             Connect with Thane Bellomo →
           </a>
-          <p style={{ fontSize: '0.78rem', color: '#3a3630', marginTop: '16px' }}>
+          <p style={{ fontSize: '0.78rem', color: '#5a5650', marginTop: '16px' }}>
             Bellomo Leadership · Executive Coaching & Organizational Development
           </p>
+          <LegalNotice style={{ marginTop: '20px' }} />
         </div>
  
         {/* utility buttons */}
