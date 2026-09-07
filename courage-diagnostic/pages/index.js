@@ -150,7 +150,7 @@ function Intro({ onStart }) {
           <p style={{ fontSize: '0.85rem', color: '#5a5650', marginBottom: '44px' }}>35 questions · 15–20 minutes · Confidential</p>
           <button style={S.btnGold} onClick={onStart}>Begin the Diagnostic →</button>
           <p style={{ fontSize: '0.75rem', color: '#5a5650', marginTop: '36px' }}>
-            A Bellomo Leadership Assessment Tool · Based on The Courageous Organization framework
+            A Bellomo Leadership Assessment Tool · Based on The Courage Economy Framework
           </p>
           <LegalNotice />
         </div>
