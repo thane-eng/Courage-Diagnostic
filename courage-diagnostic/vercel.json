@@ -8,6 +8,12 @@
   ],
   "redirects": [
     {
+      "source": "/",
+      "has": [{ "type": "host", "value": "diagnostic.bellomoleadership.com" }],
+      "destination": "https://diagnostic.thecourageeconomy.net/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
       "has": [{ "type": "host", "value": "diagnostic.bellomoleadership.com" }],
       "destination": "https://diagnostic.thecourageeconomy.net/:path*",
