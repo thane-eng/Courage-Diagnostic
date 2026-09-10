@@ -1,1 +1,17 @@
-{"rewrites":[{"source":"/","has":[{"type":"host","value":"lieinventory.thecourageeconomy.net"}],"destination":"/inventory.html"}]}
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "lieinventory.thecourageeconomy.net" }],
+      "destination": "/inventory.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "diagnostic.bellomoleadership.com" }],
+      "destination": "https://diagnostic.thecourageeconomy.net/:path*",
+      "permanent": true
+    }
+  ]
+}
