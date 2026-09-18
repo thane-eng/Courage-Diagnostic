@@ -204,7 +204,7 @@
     </div>
     <div class="note-box nb-red">
       <div class="nb-label">One more label</div>
-      <div class="nb-content">A coefficient marked <span class="chip untraced">Untraced</span> is one we could not connect to any study, even loosely. There is one. It is called out below and in <a href="#weaknesses">Known weaknesses</a>.</div>
+      <div class="nb-content">A coefficient marked <span class="chip untraced">Untraced</span> is one we could not connect to any study, even loosely. None currently carries it. The Innovation Deficit did when this page was first published; its entry now shows the derivation that replaced the placeholder, and <a href="#weaknesses">Known weaknesses</a> says what is still soft about it.</div>
     </div>
   </section>
 
@@ -263,22 +263,24 @@ Recovery   = max($150K, 2% × payroll) × (1 + 0.15 × years)
         </div>
       </div>
 
-      <div class="coef untraced">
+      <div class="coef bounded">
         <div class="coef-head">
           <div class="coef-name">Innovation Deficit <small>Curiosity · per-employee category</small></div>
-          <div class="coef-val">$1,800 / employee <span class="chip untraced">Untraced</span></div>
+          <div class="coef-val">$1,800 / employee <span class="chip bounded">Bounded</span></div>
         </div>
         <div class="coef-body">
-          <p>The annual cost, per person, of ideas that never get raised, questions that never get asked, and information that never crosses a desk because nobody was curious enough to ask for it. Modeled per employee rather than as a share of payroll so it does not scale with salary.</p>
+          <p>The annual cost, per person, of questions that never get asked, information that never crosses a desk, and ideas that never get raised because nobody was curious enough to ask for them. Modeled per employee rather than as a share of payroll so it does not scale with salary, and not overlap-discounted because it is priced from a different evidence base than the three labor categories.</p>
           <div class="lbl">What the evidence says</div>
           <ul>
-            <li>VitalSmarts (n = 1,025) found each avoided crucial conversation costs an average of $7,500 in lost time and resources, and one in five respondents put the cost above $50,000 [8].</li>
-            <li>Panopto (n = 1,000) found employees spend 5.3 hours a week waiting for information from coworkers or recreating information that already exists [14].</li>
-            <li>Zak reports 50% higher self-reported productivity at high-trust companies [3].</li>
+            <li>Panopto (n = 1,001, with YouGov) found employees spend 5.3 hours a week waiting for information from colleagues or recreating knowledge that already exists; 60% said getting vital information from coworkers is difficult or nearly impossible, and 42% of institutional knowledge sits with a single person. Panopto's own cost formula, which already discounts the raw hours for utilization and adoption, works out to about $2,650 per employee per year ($26.5 million for a 10,000-person company) [14].</li>
+            <li>VitalSmarts (n = 1,025) priced each avoided crucial conversation at $7,500; one of its five failure types is "clarifying unclear management directives," the pure not-asking case [8]. Quantum Workplace and Fierce Conversations (n = 1,344) found 53% of employees handle difficult situations by ignoring them [25]; Bravely's survey put avoidance at seven in ten [24].</li>
+            <li>Gallup reports that only three in ten U.S. workers strongly agree their opinions count at work, and that moving that to six in ten would yield a 12% gain in productivity, alongside 27% lower turnover and 40% fewer safety incidents [23].</li>
           </ul>
+          <div class="lbl">How $1,800 is derived</div>
+          <p>Three independent anchors, at the default $75,000 salary. Panopto's knowledge-flow waste is about $2,650 per employee; by Panopto's own findings the majority of it is people not asking and not telling rather than missing tools, and 50–75% of it is $1,325–$1,990. VitalSmarts' $7,500 per avoided conversation, at one-half to seven-tenths of an avoided conversation per employee per year, is $3,750–$5,250; the Curiosity share, unasked questions and unclarified directives rather than confrontation, at 20–35% is $750–$1,840. Gallup's 12% productivity effect is about $9,000 per employee, of which $1,800 is one-fifth; the other four-fifths is where the labor categories already charge for the same silence. The overlap of the first two ranges is roughly $1,300–$1,840, and $1,800 sits at the top of it.</p>
           <div class="lbl">Honest status</div>
-          <p>None of these produce $1,800. The figure is a placeholder chosen to keep Curiosity in the model at a modest weight (about 2.4% of payroll at the default salary, before the gap term). It is the most exposed number in the calculator and the first one we would replace with a defensible derivation. If you have one, we want it.</p>
-          <div class="refs">References [3] [8] [14]</div>
+          <p>The magnitudes are measured; the shares assigned to Curiosity are ours, which is why this is Bounded rather than Sourced. A reader who prefers the middle of the range should read this line at about $1,500, which lowers the default 250-person total by roughly 1%. The Decision Drag entry draws on the same VitalSmarts figure; the two categories split the avoided-conversation cost by failure type rather than each claiming all of it. Before 18 September 2026 this coefficient carried the Untraced label.</p>
+          <div class="refs">References [8] [14] [23] [24] [25]</div>
         </div>
       </div>
 
@@ -512,7 +514,7 @@ Recovery   = max($150K, 2% × payroll) × (1 + 0.15 × years)
       <li>Peterson, B. D., &amp; Nielson, G. W. (2009). <em>Fake work: Why people are working harder than ever but accomplishing less, and how to fix the problem</em>. Simon Spotlight Entertainment. <a href="https://www.simonandschuster.com/books/Fake-Work/Brent-D-Peterson/9781416586357" target="_blank" rel="noopener">publisher page</a><span class="used">Used for: Fake Work Tax. Roughly 50% of work fails to advance strategy; the authors' own survey work, not peer-reviewed.</span></li>
       <li>Gallup. (2023). <em>State of the Global Workplace: 2023 report</em>. <a href="https://www.gallup.com/workplace/393497/world-trillion-workplace-problem.aspx" target="_blank" rel="noopener">gallup.com</a><span class="used">Used for: Fake Work Tax. $8.8 trillion in lost productivity, ≈9% of global GDP (2024 edition: $8.9 trillion).</span></li>
       <li>McKinsey Global Institute. (2012, July). <em>The social economy: Unlocking value and productivity through social technologies</em>. <a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy" target="_blank" rel="noopener">mckinsey.com</a><span class="used">Used for: Fake Work Tax. 20–25% potential productivity improvement for interaction workers.</span></li>
-      <li>Panopto. (2018, July 18). <em>Workplace Knowledge and Productivity Report</em>. Reported in HR Dive. <a href="https://www.hrdive.com/news/inefficient-knowledge-sharing-costs-large-us-businesses-47m-a-year/527892/" target="_blank" rel="noopener">hrdive.com</a><span class="used">Used for: Innovation Deficit. n = 1,000; 5.3 hours/week waiting for or recreating information. Vendor research; secondary source.</span></li>
+      <li>Panopto. (2018, July 18). <em>Workplace Knowledge and Productivity Report</em>. Reported in HR Dive. <a href="https://www.hrdive.com/news/inefficient-knowledge-sharing-costs-large-us-businesses-47m-a-year/527892/" target="_blank" rel="noopener">hrdive.com</a><span class="used">Used for: Innovation Deficit. n = 1,001 (with YouGov); 5.3 hours/week waiting for or recreating information; 60% find it hard to get information from colleagues; Panopto's own formula ≈ $2,650 per employee per year. Vendor research; secondary source.</span></li>
       <li>Watson Wyatt Worldwide. (2002). <em>WorkUSA 2002: Weathering the storm</em>. Cited in Chief Executive, "The business case for trust." <a href="https://chiefexecutive.net/the-business-case-for-trust/" target="_blank" rel="noopener">chiefexecutive.net</a><span class="used">Used for: Political Tax. 286% higher total shareholder return at high-trust organizations. Secondhand; original report not located.</span></li>
     </ol>
 
@@ -527,8 +529,15 @@ Recovery   = max($150K, 2% × payroll) × (1 + 0.15 × years)
       <li>Sull, D., Turconi, S., &amp; Sull, C. (2020). When it comes to culture, does your company walk the talk? <em>MIT Sloan Management Review</em>. <a href="https://sloanreview.mit.edu/article/when-it-comes-to-culture-does-your-company-walk-the-talk/" target="_blank" rel="noopener">sloanreview.mit.edu</a><span class="used">Used for: Candor Adjustment. No correlation between official values and employee-described culture.</span></li>
     </ol>
 
-    <div class="group-title">Also relevant, not used in a coefficient</div>
+    <div class="group-title">Employee voice and knowledge flow</div>
     <ol class="reflist" style="counter-reset: ref 22;">
+      <li>Gallup. (2017, December 7). How to create a culture of psychological safety. <a href="https://www.gallup.com/workplace/236198/create-culture-psychological-safety.aspx" target="_blank" rel="noopener">gallup.com</a><span class="used">Used for: Innovation Deficit. Three in ten U.S. workers strongly agree their opinions count; moving to six in ten → 27% less turnover, 40% fewer safety incidents, 12% higher productivity.</span></li>
+      <li>Bravely. (2019). <em>Understanding the conversation gap</em> [white paper]; survey of 500+ U.S. full-time employees, reported by CNBC, March 14, 2019. <a href="https://www.cnbc.com/2019/03/14/how-to-deal-with-difficult-conversations-colleagues-at-work.html" target="_blank" rel="noopener">cnbc.com</a> · <a href="https://learn.workbravely.com/hubfs/Understanding-the-Conversation-Gap.pdf" target="_blank" rel="noopener">white paper (PDF)</a><span class="used">Used for: Innovation Deficit. Seven in ten employees avoid difficult conversations at work. Vendor research.</span></li>
+      <li>Quantum Workplace &amp; Fierce Conversations. (2017). Survey of 1,344 full-time employees, as cited in [24].<span class="used">Used for: Innovation Deficit. 53% handle difficult situations by ignoring them; 24% confront directly. Secondhand.</span></li>
+    </ol>
+
+    <div class="group-title">Also relevant, not used in a coefficient</div>
+    <ol class="reflist" style="counter-reset: ref 25;">
       <li>Keil, M., Smith, H. J., Iacovou, C. L., &amp; Thompson, R. L. (2014). The pitfalls of project status reporting. <em>MIT Sloan Management Review</em>, 55(3), 57–64. <a href="https://sloanreview.mit.edu/article/the-pitfalls-of-project-status-reporting/" target="_blank" rel="noopener">sloanreview.mit.edu</a><span class="used">Systematic misreporting of project status; the mechanism behind "green while aware."</span></li>
       <li>Guiso, L., Sapienza, P., &amp; Zingales, L. (2015). The value of corporate culture. <em>Journal of Financial Economics</em>, 117(1), 60–76. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0304405X14001147" target="_blank" rel="noopener">doi:10.1016/j.jfineco.2014.05.010</a><span class="used">Proclaimed values do not predict performance; perceived management integrity does.</span></li>
       <li>Association of Certified Fraud Examiners. (2024). <em>Occupational fraud 2024: A report to the nations</em>. <a href="https://www.acfe.com/about-the-acfe/newsroom-for-media/press-releases/press-release-detail?s=2024-Report-to-the-Nations" target="_blank" rel="noopener">acfe.com</a><span class="used">Organizations lose an estimated 5% of revenue to fraud each year. The Lie Economy's most literal line item; not modeled because it overlaps unpredictably with the five categories.</span></li>
@@ -541,8 +550,8 @@ Recovery   = max($150K, 2% × payroll) × (1 + 0.15 × years)
     <h2>Known weaknesses</h2>
     <p class="lede">The Skeptic's Appendix answers the six strongest objections to the calculator's existence. This list is narrower: the specific places where the numbers are weaker than the page makes them look.</p>
     <div class="weak">
-      <div class="weak-item"><div class="n">1</div><div><strong>The $1,800 Innovation Deficit is untraced.</strong> No study we found produces it. It should be replaced with a derivation, for example a per-employee share of the VitalSmarts avoided-conversation cost, or dropped and folded into Decision Drag.</div></div>
-      <div class="weak-item"><div class="n">2</div><div><strong>Most coefficients are ours.</strong> Of fourteen, one factor (63% preventable) is taken directly from a study. Five are bounded by evidence. The rest are modeling choices. That is a defensible way to build a directional tool; it is not the same as "grounded in research," and the calculator's footnote should say which is which.</div></div>
+      <div class="weak-item"><div class="n">1</div><div><strong>The Innovation Deficit rests on attribution shares.</strong> Its three anchors (Panopto, VitalSmarts, Gallup) are measured, but the fraction of each we assign to Curiosity is a judgment, and $1,800 sits at the top of the overlap rather than in the middle. It was Untraced until 18 September 2026; the derivation is in its ledger entry.</div></div>
+      <div class="weak-item"><div class="n">2</div><div><strong>Most coefficients are ours.</strong> Of fourteen, one factor (63% preventable) is taken directly from a study. Six are bounded by evidence. The rest are modeling choices. That is a defensible way to build a directional tool; it is not the same as "grounded in research," and the calculator's footnote should say which is which.</div></div>
       <div class="weak-item"><div class="n">3</div><div><strong>The evidence is correlational and much of it is self-reported.</strong> Zak's productivity gap is what employees said about themselves. Simons is the strongest causal-leaning study here and it is one industry. None of the sources establish that raising a Courage Score causes the modeled savings.</div></div>
       <div class="weak-item"><div class="n">4</div><div><strong>Replacement cost is set well above Work Institute's own figure.</strong> We cite Work Institute for the 63% and then price replacement at 85% of salary, when their report says 33%. The 85% comes from Gallup's role-based range. Both are legitimate; using them together should be visible, and now it is.</div></div>
       <div class="weak-item"><div class="n">5</div><div><strong>The "27% ceiling" is understated.</strong> The code comments and the Skeptic's Appendix cite a credible ceiling of about 27% of payroll. That is the labor categories before the foundation amplifier. The model's actual ceiling is 31.6% for labor and roughly 45% in total. See <a href="#charges">What it actually charges</a>.</div></div>
@@ -564,7 +573,7 @@ Recovery   = max($150K, 2% × payroll) × (1 + 0.15 × years)
   </div>
 
   <p class="footnote">
-    Sources &amp; Methods for the Lie Economy Calculator v3. Sources reviewed September 2026. Companion to <a href="/skeptics-appendix.pdf" target="_blank" rel="noopener">The Skeptic's Appendix</a>. Framework: Thane Bellomo, <em>The Courage Economy</em>&trade;.
+    Sources &amp; Methods for the Lie Economy Calculator v3. Sources reviewed September 2026; revised 18 September 2026 (Innovation Deficit derived, three references added). Companion to <a href="/skeptics-appendix.pdf" target="_blank" rel="noopener">The Skeptic's Appendix</a>. Framework: Thane Bellomo, <em>The Courage Economy</em>&trade;.
   </p>
   <p class="footnote legal">
     &copy; 2026 Bellomo Leadership LLC. All rights reserved. The Courage Economy&trade; is a trademark of Bellomo Leadership LLC. This page, the Lie Economy Calculator, and the model they describe are proprietary to Bellomo Leadership LLC. May be cited with attribution. May not be reproduced or adapted for commercial use without permission. Cited works remain the property of their respective authors and publishers.
