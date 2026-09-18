@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sources &amp; Methods | Lie Economy Calculator | Bellomo Leadership</title>
+<meta name="description" content="Every coefficient in the Lie Economy Calculator, where it came from, and how much weight it can bear.">
+<style>
+  :root {
+    --navy: #0d1f3c;
+    --navy-light: #1e3a66;
+    --gold: #c9a84c;
+    --gold-light: #e8c96d;
+    --white: #ffffff;
+    --off-white: #f7f5f0;
+    --gray-100: #f0ede6;
+    --gray-200: #ddd8cc;
+    --gray-300: #c8c2b4;
+    --gray-500: #8a8070;
+    --gray-700: #4a4540;
+    --red: #b52b20;
+    --red-bg: #fdf0ee;
+    --amber: #a87c10;
+    --amber-bg: #fdf7e0;
+    --teal: #1a6b6b;
+    --teal-bg: #edf7f7;
+    --green: #1a6b3c;
+    --green-bg: #edf7f2;
+    --font-head: 'Georgia', 'Times New Roman', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(13,31,60,0.10);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); background: var(--off-white); color: var(--gray-700); line-height: 1.6; }
+  a { color: var(--navy); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 2px; }
+  a:hover { color: var(--amber); }
+
+  .site-header { background: var(--navy); padding: 18px 32px; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .brand-name { font-family: var(--font-head); color: var(--gold); font-size: 1.05rem; letter-spacing: .04em; }
+  .brand-tag { color: var(--gray-300); font-size: .7rem; letter-spacing: .09em; text-transform: uppercase; margin-top: 2px; }
+  .header-links { display: flex; gap: 10px; flex-wrap: wrap; }
+  .header-cta { background: transparent; border: 1.5px solid var(--gold); color: var(--gold); padding: 7px 16px; border-radius: 6px; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: all .2s; white-space: nowrap; }
+  .header-cta:hover { background: var(--gold); color: var(--navy); }
+
+  .hero { background: linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%); padding: 50px 24px 42px; text-align: center; }
+  .hero-eyebrow { color: var(--gold); font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; margin-bottom: 14px; }
+  .hero h1 { font-family: var(--font-head); color: var(--white); font-size: clamp(2rem,5vw,3rem); font-weight: 400; line-height: 1.15; margin-bottom: 14px; }
+  .hero h1 em { color: var(--gold-light); font-style: italic; }
+  .hero-sub { color: var(--gray-300); font-size: 1rem; max-width: 620px; margin: 0 auto; line-height: 1.65; }
+  .hero-version { display: inline-block; margin-top: 14px; background: rgba(201,168,76,.14); border: 1px solid rgba(201,168,76,.35); border-radius: 20px; padding: 4px 14px; color: var(--gold-light); font-size: .72rem; letter-spacing: .05em; }
+
+  .main { max-width: 960px; margin: 0 auto; padding: 36px 16px 80px; }
+
+  .toc { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 18px 22px; margin-bottom: 28px; display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: .84rem; }
+  .toc span { color: var(--gray-500); text-transform: uppercase; letter-spacing: .08em; font-size: .68rem; font-weight: 700; width: 100%; }
+  .toc a { text-decoration: none; color: var(--navy); font-weight: 600; }
+  .toc a:hover { color: var(--amber); }
+
+  section { margin-bottom: 44px; }
+  h2 { font-family: var(--font-head); color: var(--navy); font-size: 1.55rem; font-weight: 400; margin-bottom: 6px; }
+  .section-kicker { color: var(--gray-500); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; }
+  .lede { font-size: 1rem; color: var(--gray-700); max-width: 760px; margin-bottom: 18px; }
+  p + p { margin-top: 10px; }
+
+  .card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+  .card-body { padding: 22px; }
+
+  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  @media(max-width:720px){ .tiers { grid-template-columns: 1fr; } }
+  .tier { border-radius: 10px; padding: 14px 16px; border: 1.5px solid; }
+  .tier h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .tier p { font-size: .84rem; line-height: 1.5; }
+  .tier.sourced { background: var(--green-bg); border-color: #a8d4b8; } .tier.sourced h3 { color: var(--green); }
+  .tier.bounded { background: var(--teal-bg); border-color: #a8d4d4; } .tier.bounded h3 { color: var(--teal); }
+  .tier.judgment { background: var(--amber-bg); border-color: #e0c060; } .tier.judgment h3 { color: var(--amber); }
+
+  .chip { display: inline-block; font-size: .62rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; border-radius: 10px; padding: 2px 9px; border: 1px solid; white-space: nowrap; vertical-align: middle; }
+  .chip.sourced { background: var(--green-bg); color: var(--green); border-color: #a8d4b8; }
+  .chip.bounded { background: var(--teal-bg); color: var(--teal); border-color: #a8d4d4; }
+  .chip.judgment { background: var(--amber-bg); color: var(--amber); border-color: #e0c060; }
+  .chip.untraced { background: var(--red-bg); color: var(--red); border-color: #eab0ab; }
+
+  .formula { background: var(--navy); color: var(--gray-200); border-radius: 10px; padding: 18px 20px; font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace; font-size: .8rem; line-height: 1.75; overflow-x: auto; white-space: pre; }
+  .formula b { color: var(--gold-light); font-weight: 600; }
+  .formula .c { color: var(--gray-500); }
+
+  .ledger { display: flex; flex-direction: column; gap: 14px; }
+  .coef { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); border-left: 4px solid var(--gray-300); overflow: hidden; }
+  .coef.sourced { border-left-color: var(--green); }
+  .coef.bounded { border-left-color: var(--teal); }
+  .coef.judgment { border-left-color: var(--amber); }
+  .coef.untraced { border-left-color: var(--red); }
+  .coef-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 16px 20px 8px; }
+  .coef-name { font-size: .95rem; font-weight: 700; color: var(--navy); }
+  .coef-name small { display: block; font-weight: 400; color: var(--gray-500); font-size: .72rem; font-style: italic; }
+  .coef-val { font-family: var(--font-head); font-size: 1.35rem; color: var(--navy); white-space: nowrap; }
+  .coef-body { padding: 0 20px 18px; font-size: .86rem; }
+  .coef-body p { margin-bottom: 8px; }
+  .coef-body .lbl { font-size: .66rem; text-transform: uppercase; letter-spacing: .09em; font-weight: 700; color: var(--gray-500); margin: 10px 0 3px; }
+  .coef-body ul { padding-left: 18px; margin-bottom: 6px; }
+  .coef-body li { margin-bottom: 4px; }
+  .refs { font-size: .78rem; color: var(--gray-500); }
+  .refs a { color: var(--navy); }
+  .group-title { font-family: var(--font-head); font-size: 1.1rem; color: var(--navy); margin: 26px 0 10px; }
+
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 10px; border: 1.5px solid var(--gray-200); background: var(--white); }
+  table { width: 100%; border-collapse: collapse; font-size: .8rem; min-width: 640px; }
+  th, td { padding: 9px 12px; text-align: right; border-bottom: 1px solid var(--gray-100); white-space: nowrap; }
+  th { background: var(--navy); color: var(--gray-200); font-weight: 600; font-size: .68rem; text-transform: uppercase; letter-spacing: .06em; }
+  th:first-child, td:first-child { text-align: left; }
+  td:first-child { font-weight: 700; color: var(--navy); }
+  tr.default td { background: var(--amber-bg); }
+  tr.default td:first-child::after { content: ' (default)'; font-weight: 400; color: var(--amber); font-size: .7rem; }
+  tfoot td, tfoot td:first-child { font-size: .72rem; font-weight: 400; color: var(--gray-500); white-space: normal; text-align: left; }
+
+  .note-box { border-radius: 10px; padding: 14px 16px; margin-top: 14px; }
+  .note-box .nb-label { font-size: .69rem; text-transform: uppercase; letter-spacing: .09em; font-weight: 700; margin-bottom: 4px; }
+  .note-box .nb-content { font-size: .84rem; line-height: 1.55; }
+  .nb-red { background: var(--red-bg); border: 1.5px solid #eab0ab; } .nb-red .nb-label { color: var(--red); }
+  .nb-amber { background: var(--amber-bg); border: 1.5px solid #e0c060; } .nb-amber .nb-label { color: var(--amber); }
+  .nb-teal { background: var(--teal-bg); border: 1.5px solid #a8d4d4; } .nb-teal .nb-label { color: var(--teal); }
+
+  .reflist { counter-reset: ref; list-style: none; }
+  .reflist li { position: relative; padding-left: 38px; margin-bottom: 11px; font-size: .84rem; line-height: 1.5; }
+  .reflist li::before { counter-increment: ref; content: "[" counter(ref) "]"; position: absolute; left: 0; top: 0; font-family: var(--font-head); color: var(--gold); font-weight: 700; }
+  .reflist em { font-style: italic; }
+  .reflist .used { display: block; font-size: .72rem; color: var(--gray-500); margin-top: 2px; }
+
+  .weak { display: flex; flex-direction: column; gap: 10px; }
+  .weak-item { background: var(--white); border-radius: 10px; box-shadow: var(--shadow); padding: 14px 18px; font-size: .86rem; display: flex; gap: 12px; align-items: flex-start; }
+  .weak-item .n { font-family: var(--font-head); color: var(--gold); font-size: 1.1rem; line-height: 1.2; flex-shrink: 0; min-width: 22px; }
+  .weak-item strong { color: var(--navy); }
+
+  .cta-strip { background: var(--navy); border-radius: var(--radius); padding: 26px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 28px; flex-wrap: wrap; box-shadow: var(--shadow); }
+  .cta-strip h3 { font-family: var(--font-head); color: var(--white); font-size: 1.1rem; font-weight: 400; margin-bottom: 3px; }
+  .cta-strip p { color: var(--gray-300); font-size: .82rem; }
+  .cta-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+  .cta-btn { background: var(--gold); color: var(--navy); padding: 11px 22px; border-radius: 8px; font-weight: 700; font-size: .85rem; text-decoration: none; white-space: nowrap; transition: background .2s; }
+  .cta-btn:hover { background: var(--gold-light); color: var(--navy); }
+  .cta-btn.ghost { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
+  .cta-btn.ghost:hover { background: rgba(201,168,76,.15); }
+
+  .footnote { text-align: center; color: var(--gray-500); font-size: .69rem; margin-top: 22px; line-height: 1.55; padding: 0 16px; }
+  .footnote.legal { margin-top: 10px; max-width: 720px; margin-left: auto; margin-right: auto; }
+  @media print {
+    .site-header, .cta-strip, .toc { display: none; }
+    .hero { background: var(--navy) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .coef, .card, .weak-item { box-shadow: none; border: 1px solid var(--gray-200); break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div>
+    <div class="brand-name">Bellomo Leadership</div>
+    <div class="brand-tag">The Courage Economy</div>
+  </div>
+  <div class="header-links">
+    <a href="/calculator.html" class="header-cta">← Back to Calculator</a>
+    <a href="/skeptics-appendix.pdf" target="_blank" rel="noopener" class="header-cta">Skeptic's Appendix</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">The Lie Economy Calculator</div>
+  <h1>Sources &amp; <em>Methods</em></h1>
+  <p class="hero-sub">Every coefficient in the calculator, where it came from, and how much weight it can bear. Where a number came from a study, we name the study. Where it didn't, we say so.</p>
+  <div class="hero-version">v3 model · Sources reviewed September 2026</div>
+</div>
+
+<main class="main">
+
+  <nav class="toc" aria-label="On this page">
+    <span>On this page</span>
+    <a href="#tiers">How to read this</a>
+    <a href="#model">The model</a>
+    <a href="#ledger">Coefficient ledger</a>
+    <a href="#charges">What it actually charges</a>
+    <a href="#references">References</a>
+    <a href="#weaknesses">Known weaknesses</a>
+  </nav>
+
+  <!-- ═══ TIERS ═══ -->
+  <section id="tiers">
+    <div class="section-kicker">01</div>
+    <h2>How to read this page</h2>
+    <p class="lede">The calculator's footnote says its figures are "directional industry medians, pending primary-source verification." This page is that verification. Each coefficient is labeled with one of three evidence tiers, and the labels are not generous.</p>
+    <div class="tiers">
+      <div class="tier sourced">
+        <h3><span class="chip sourced">Sourced</span></h3>
+        <p>The value is taken directly from a named study. You can open the study and find the number.</p>
+      </div>
+      <div class="tier bounded">
+        <h3><span class="chip bounded">Bounded</span></h3>
+        <p>No single study produced the value, but it sits inside a range the published evidence supports, and we show the range.</p>
+      </div>
+      <div class="tier judgment">
+        <h3><span class="chip judgment">Judgment call</span></h3>
+        <p>A modeling choice we made. The evidence explains why the term exists in the model, not why it has this exact value. Argue with these first.</p>
+      </div>
+    </div>
+    <div class="note-box nb-red">
+      <div class="nb-label">One more label</div>
+      <div class="nb-content">A coefficient marked <span class="chip untraced">Untraced</span> is one we could not connect to any study, even loosely. There is one. It is called out below and in <a href="#weaknesses">Known weaknesses</a>.</div>
+    </div>
+  </section>
+
+  <!-- ═══ MODEL ═══ -->
+  <section id="model">
+    <div class="section-kicker">02</div>
+    <h2>The model in one screen</h2>
+    <p class="lede">The calculator converts five element scores (0–100) into an annual dollar cost. It is a linear cost model with a nonlinear gap term, a deduplication discount, and a foundation amplifier. Nothing is hidden; this is the whole thing.</p>
+    <div class="formula">
+<span class="c">// gap: how far each element sits from 100, curved so low scores hurt disproportionately</span>
+<b>gap</b>(score) = ((100 − score) / 100) ^ <b>1.5</b>
+
+<span class="c">// Important Work amplifies the other four elements (max ×1.3 when IW = 0)</span>
+<b>amp</b> = 1 + <b>0.3</b> × gap(ImportantWork)
+
+<span class="c">// five cost categories (rates apply in full only at a score of 0)</span>
+FakeWorkTax        = payroll × <b>0.20</b> × gap(IW)                   × <b>0.65</b>
+DecisionDrag       = payroll × <b>0.10</b> × gap(Challenge) × amp     × <b>0.65</b>
+PoliticalTax       = payroll × <b>0.12</b> × gap(Trust)     × amp     × <b>0.65</b>
+InnovationDeficit  = employees × <b>$1,800</b> × gap(Curiosity) × amp
+MercenaryCost      = employees × <b>0.15</b> × <b>0.63</b> × salary × <b>0.85</b> × gap(Community) × amp
+
+<span class="c">// output</span>
+AnnualCost = sum of the five           <span class="c">→ shown as mid ± 35%</span>
+Cumulative = AnnualCost × years        <span class="c">→ flat, not compounding</span>
+Recovery   = max($150K, 2% × payroll) × (1 + 0.15 × years)
+    </div>
+    <p style="font-size:.82rem;color:var(--gray-500);margin-top:10px;">The 0.65 applies only to the three labor-based categories, because they tax the same working hours. Weighted Courage Score = (2×IW + Curiosity + Challenge + Trust + Community) / 6. The optional Candor Adjustment subtracts 10 points from every element before any of this runs.</p>
+  </section>
+
+  <!-- ═══ LEDGER ═══ -->
+  <section id="ledger">
+    <div class="section-kicker">03</div>
+    <h2>Coefficient ledger</h2>
+    <p class="lede">Fourteen numbers drive the calculator. Here is each one, its evidence tier, what the research actually says, and the reference numbers that map to the <a href="#references">full citation list</a>.</p>
+
+    <div class="group-title">A. The five cost rates</div>
+    <div class="ledger">
+
+      <div class="coef judgment">
+        <div class="coef-head">
+          <div class="coef-name">Fake Work Tax <small>Important Work · labor category</small></div>
+          <div class="coef-val">20% of payroll <span class="chip judgment">Judgment call</span></div>
+        </div>
+        <div class="coef-body">
+          <p>The share of payroll spent on work that exists to look like work: status theater, reporting that reports nothing, initiatives no one believes in. The rate applies in full only at a score of 0 and is then discounted by the 0.65 overlap factor, so the most this category can ever charge is 13% of payroll.</p>
+          <div class="lbl">What the evidence says</div>
+          <ul>
+            <li>Peterson &amp; Nielson estimate that roughly half of the work employees do fails to advance the organization's strategy [11].</li>
+            <li>Gallup puts the global cost of not-engaged and actively disengaged employees at $8.8 trillion, about 9% of global GDP [12].</li>
+            <li>McKinsey Global Institute estimates that interaction workers could be 20–25% more productive if collaboration and information flow were fixed [13].</li>
+          </ul>
+          <div class="lbl">Why 20%</div>
+          <p>It is well under half of the Peterson &amp; Nielson estimate and sits at the bottom of the MGI range. We chose it to be conservative relative to the loudest claims in the literature. It is still our number, not theirs.</p>
+          <div class="refs">References [11] [12] [13]</div>
+        </div>
+      </div>
+
+      <div class="coef untraced">
+        <div class="coef-head">
+          <div class="coef-name">Innovation Deficit <small>Curiosity · per-employee category</small></div>
+          <div class="coef-val">$1,800 / employee <span class="chip untraced">Untraced</span></div>
+        </div>
+        <div class="coef-body">
+          <p>The annual cost, per person, of ideas that never get raised, questions that never get asked, and information that never crosses a desk because nobody was curious enough to ask for it. Modeled per employee rather than as a share of payroll so it does not scale with salary.</p>
+          <div class="lbl">What the evidence says</div>
+          <ul>
+            <li>VitalSmarts (n = 1,025) found each avoided crucial conversation costs an average of $7,500 in lost time and resources, and one in five respondents put the cost above $50,000 [8].</li>
+            <li>Panopto (n = 1,000) found employees spend 5.3 hours a week waiting for information from coworkers or recreating information that already exists [14].</li>
+            <li>Zak reports 50% higher self-reported productivity at high-trust companies [3].</li>
+          </ul>
+          <div class="lbl">Honest status</div>
+          <p>None of these produce $1,800. The figure is a placeholder chosen to keep Curiosity in the model at a modest weight (about 2.4% of payroll at the default salary, before the gap term). It is the most exposed number in the calculator and the first one we would replace with a defensible derivation. If you have one, we want it.</p>
+          <div class="refs">References [3] [8] [14]</div>
+        </div>
+      </div>
+
+      <div class="coef bounded">
+        <div class="coef-head">
+          <div class="coef-name">Decision Drag <small>Challenge · labor category</small></div>
+          <div class="coef-val">10% of payroll <span class="chip bounded">Bounded</span></div>
+        </div>
+        <div class="coef-body">
+          <p>The cost of decisions that take too long, get made without the dissent that would have improved them, or get made twice because the first version was consensus theater.</p>
+          <div class="lbl">What the evidence says</div>
+          <ul>
+            <li>McKinsey (n = 1,259, 91 countries) found respondents spend 37% of their time on decision-making and 61% say most of that time is used ineffectively. For an average Fortune 500 company that works out to roughly 530,000 lost days and $250 million in wasted labor a year, on managers alone [7]. That is about $4,400 per employee per year across the whole headcount.</li>
+            <li>Each avoided crucial conversation costs about $7,500 [8]; 85% of employees in Milliken, Morrison &amp; Hewlin's study had at some point felt unable to raise an issue with a boss [4].</li>
+            <li>Detert &amp; Edmondson show that self-censorship runs on implicit, taken-for-granted rules that operate even when leaders believe speaking up is safe [5].</li>
+          </ul>
+          <div class="lbl">Why 10%</div>
+          <p>At a score of 0 and after the overlap discount, this category charges 6.5% of payroll (8.5% with maximum foundation amplification). The McKinsey figure alone, which counts only managers' time, implies roughly 4–6% of a typical payroll. So the ceiling sits modestly above the one hard number we have, and the default score charges well below it.</p>
+          <div class="refs">References [4] [5] [7] [8]</div>
+        </div>
+      </div>
+
+      <div class="coef bounded">
+        <div class="coef-head">
+          <div class="coef-name">Political Tax <small>Trust · labor category</small></div>
+          <div class="coef-val">12% of payroll <span class="chip bounded">Bounded</span></div>
+        </div>
+        <div class="coef-body">
+          <p>The hours spent on self-protection instead of the work: managing up, managing optics, building the paper trail, and the disengagement that follows when people conclude that leaders don't do what they say.</p>
+          <div class="lbl">What the evidence says</div>
+          <ul>
+            <li>Zak (n = 1,095 U.S. working adults) reports that people at high-trust companies show 50% higher productivity, 76% more engagement, 74% less stress, 13% fewer sick days and 40% less burnout than people at low-trust companies. All self-reported [3].</li>
+            <li>Simons (6,500 employees, 76 hotels) found that a one-eighth-point improvement in employees' rating of managers' behavioral integrity, meaning whether managers do what they say, was worth about 2.5% of revenue in profit, more than $250,000 per hotel. It was the single strongest predictor of profitability among the manager behaviors measured [1] [2].</li>
+            <li>A meta-analysis in the <em>Academy of Management Journal</em> links perceived organizational politics to lower job satisfaction and commitment, higher strain, and higher turnover intention [6].</li>
+            <li>Watson Wyatt's WorkUSA 2002 reported total shareholder return 286% higher at high-trust organizations. We could only locate this secondhand [15].</li>
+          </ul>
+          <div class="lbl">Why 12%</div>
+          <p>Zak's 50% productivity gap and Simons' 2.5%-of-revenue effect both imply that trust is worth more than 12% of payroll at the extremes. We set it below what those studies suggest because both are correlational and one is self-reported. After the overlap discount the ceiling is 7.8% of payroll (10.1% with maximum amplification).</p>
+          <div class="refs">References [1] [2] [3] [6] [15]</div>
+        </div>
+      </div>
+
+      <div class="coef sourced">
+        <div class="coef-head">
+          <div class="coef-name">Mercenary Cost <small>Community · turnover category</small></div>
+          <div class="coef-val">15% × 63% × 85% of salary <span class="chip sourced">Mixed</span></div>
+        </div>
+        <div class="coef-body">
+          <p>Preventable turnover, priced. Three factors: the share of people who leave in a year, the share of those exits that were preventable, and what it costs to replace each one. Each factor has a different evidence tier.</p>
+          <div class="lbl">63% preventable — <span class="chip sourced">Sourced</span></div>
+          <p>Work Institute's 2025 Retention Report, built from tens of thousands of exit interviews, found that preventable turnover driven by career stagnation, work-life balance and management failures accounted for 63% of all job exits in 2024 [16]. Gallup's 2024 figure is lower: 42% of voluntary leavers said their exit was preventable [17]. We use the higher, exit-interview-based number.</p>
+          <div class="lbl">85% of salary to replace — <span class="chip bounded">Bounded</span></div>
+          <p>Gallup estimates replacement cost at roughly 200% of salary for leaders and managers, 80% for technical roles and 40% for frontline workers [17]. Work Institute's own conservative estimate is 33% of base salary [16]. 85% is a blended mid-workforce figure; an organization that is mostly frontline should lower it, and one that is mostly professional or managerial should raise it.</p>
+          <div class="lbl">15% annual turnover — <span class="chip bounded">Bounded</span></div>
+          <p>BLS JOLTS reports the private-sector quits rate averaged 2.3% per month in 2024, roughly 27% annualized [18]. Employer surveys of voluntary turnover typically land in the low-to-mid teens. 15% is deliberately at the low end; it is the baseline churn the gap term then scales.</p>
+          <div class="lbl">Supporting evidence that culture drives exits</div>
+          <ul>
+            <li>Toxic culture was 10.4 times more predictive of attrition than compensation during the Great Resignation [19].</li>
+            <li>SHRM estimates culture-driven turnover cost U.S. employers $223 billion over five years; one in five workers left a job because of culture [20].</li>
+            <li>In Korn Ferry's survey of nearly 5,000 professionals, 33% were job-hunting because they were bored and wanted a new challenge, more than cited pay [21].</li>
+          </ul>
+          <div class="refs">References [16] [17] [18] [19] [20] [21]</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="group-title">B. Structural parameters</div>
+    <div class="ledger">
+
+      <div class="coef judgment">
+        <div class="coef-head">
+          <div class="coef-name">Overlap factor <small>applied to the three labor categories</small></div>
+          <div class="coef-val">0.65 <span class="chip judgment">Judgment call</span></div>
+        </div>
+        <div class="coef-body">
+          <p>Fake Work, Decision Drag and Political Tax all tax the same working hours. An hour spent in a defensive status meeting is simultaneously fake work, decision drag and political cover. Summing the three raw rates (42%) would count that hour three times, so the sum is discounted to 27.3%. No study produced 0.65; it is a deduplication assumption. Because the labor categories are about three-quarters of the total at the default inputs, changing this factor moves the total almost proportionally.</p>
+        </div>
+      </div>
+
+      <div class="coef judgment">
+        <div class="coef-head">
+          <div class="coef-name">Gap exponent <small>gap = ((100 − score)/100)^1.5</small></div>
+          <div class="coef-val">1.5 <span class="chip judgment">Judgment call</span></div>
+        </div>
+        <div class="coef-body">
+          <p>Trust does not erode in a straight line; it holds, then breaks. The exponent makes low scores hurt disproportionately and high scores cost almost nothing. A score of 52 is charged 33% of the ceiling rather than the 48% a linear model would charge; a score of 80 is charged 9% rather than 20%. The direction is supported by Slovic's asymmetry principle (trust is built slowly and destroyed quickly) [10] and by Morrison &amp; Milliken's account of how climates of silence become self-reinforcing [9]. The value 1.5 is ours.</p>
+          <div class="refs">References [9] [10]</div>
+        </div>
+      </div>
+
+      <div class="coef judgment">
+        <div class="coef-head">
+          <div class="coef-name">Foundation weighting <small>Important Work: 2× in the score, amp = 1 + 0.3 × gap(IW)</small></div>
+          <div class="coef-val">2× / up to 1.3× <span class="chip judgment">Judgment call</span></div>
+        </div>
+        <div class="coef-body">
+          <p>This encodes the framework's central claim: when work loses its weight, dishonesty about it carries no cost, so every other gap gets more expensive. Important Work counts double in the weighted score, and its gap amplifies the other four cost categories by up to 30%. Korn Ferry's finding that boredom and lack of challenge outrank pay as reasons to leave [21] points the same direction, but the 2× and 0.3 are framework-driven choices, not measured effects.</p>
+          <div class="refs">Reference [21]; framework: <em>The Courage Economy</em></div>
+        </div>
+      </div>
+
+      <div class="coef judgment">
+        <div class="coef-head">
+          <div class="coef-name">Output range <small>shown around every total</small></div>
+          <div class="coef-val">± 35% <span class="chip judgment">Judgment call</span></div>
+        </div>
+        <div class="coef-body">
+          <p>The range exists so the calculator never publishes a false-precision point estimate. It is not a computed confidence interval; it is a stated uncertainty band that we think is, if anything, too narrow given the tiers above.</p>
+        </div>
+      </div>
+
+      <div class="coef judgment">
+        <div class="coef-head">
+          <div class="coef-name">Recovery cost <small>base and annual escalation</small></div>
+          <div class="coef-val">max($150K, 2% of payroll) · +15%/yr <span class="chip judgment">Judgment call</span></div>
+        </div>
+        <div class="coef-body">
+          <p>The base is a rough floor for a serious leadership-team and culture intervention at a mid-sized organization. The escalation encodes a pattern the attrition research supports in direction, that truth-tellers leave first and new hires get socialized into the theater [19], but no study measures it at 15% a year. Treat this as an illustration of the argument that delay is not free, not as a forecast.</p>
+          <div class="refs">Reference [19]</div>
+        </div>
+      </div>
+
+      <div class="coef judgment">
+        <div class="coef-head">
+          <div class="coef-name">Cumulative cost <small>annual cost × years</small></div>
+          <div class="coef-val">flat, not compounding <span class="chip judgment">Judgment call</span></div>
+        </div>
+        <div class="coef-body">
+          <p>Simple accumulation, deliberately. We do not compound the annual drag, because we have no evidence that it grows year over year at a knowable rate. This is the conservative choice and it makes the "left on the table" figure a floor.</p>
+        </div>
+      </div>
+
+      <div class="coef judgment">
+        <div class="coef-head">
+          <div class="coef-name">Candor Adjustment <small>optional self-report correction</small></div>
+          <div class="coef-val">−10 points <span class="chip judgment">Judgment call</span></div>
+        </div>
+        <div class="coef-body">
+          <p>Organizations deep in a Lie Economy inflate their own scores; that is what a Lie Economy is. Sull, Turconi &amp; Sull found no correlation between the values companies publish and the culture their employees describe [22], and Detert &amp; Edmondson show that people self-censor under rules leaders do not know exist [5]. Both justify the existence of the toggle. The size of the correction, 10 points, is ours.</p>
+          <div class="refs">References [5] [22]</div>
+        </div>
+      </div>
+
+      <div class="coef judgment">
+        <div class="coef-head">
+          <div class="coef-name">Zone labels &amp; defaults <small>20 / 40 / 60 / 80 · 250 employees · $75,000 · 3 years</small></div>
+          <div class="coef-val">descriptive <span class="chip judgment">Judgment call</span></div>
+        </div>
+        <div class="coef-body">
+          <p>The zone thresholds (Lie Economy, Fear-Based, Guarded, Cautious Courage, Courage Economy) are labels at even intervals, not empirically derived cut points. The default inputs are illustrative and every one of them is editable.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CHARGES ═══ -->
+  <section id="charges">
+    <div class="section-kicker">04</div>
+    <h2>What the model actually charges</h2>
+    <p class="lede">The headline rates (20%, 10%, 12%) are ceilings that apply only at a score of zero. The gap curve, the overlap discount and the amplifier all pull the effective charge down from there. This table shows the effective charge at several scores, with all five elements set to the same value, for an organization at the default inputs.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Score</th>
+            <th>Fake Work</th>
+            <th>Decision Drag</th>
+            <th>Political Tax</th>
+            <th>Mercenary</th>
+            <th>Innovation</th>
+            <th>Total</th>
+            <th>Per employee</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>0</td><td>13.0%</td><td>8.5%</td><td>10.1%</td><td>10.4%</td><td>$2,340</td><td>45.2%</td><td>$33,900</td></tr>
+          <tr><td>20</td><td>9.3%</td><td>5.7%</td><td>6.8%</td><td>7.0%</td><td>$1,564</td><td>30.8%</td><td>$23,100</td></tr>
+          <tr><td>40</td><td>6.0%</td><td>3.4%</td><td>4.1%</td><td>4.3%</td><td>$953</td><td>19.1%</td><td>$14,350</td></tr>
+          <tr class="default"><td>52</td><td>4.3%</td><td>2.4%</td><td>2.9%</td><td>2.9%</td><td>$658</td><td>13.4%</td><td>$10,025</td></tr>
+          <tr><td>60</td><td>3.3%</td><td>1.8%</td><td>2.1%</td><td>2.2%</td><td>$490</td><td>10.0%</td><td>$7,515</td></tr>
+          <tr><td>80</td><td>1.2%</td><td>0.6%</td><td>0.7%</td><td>0.7%</td><td>$165</td><td>3.4%</td><td>$2,575</td></tr>
+          <tr><td>100</td><td>0%</td><td>0%</td><td>0%</td><td>0%</td><td>$0</td><td>0%</td><td>$0</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="8">Percentages are of payroll. Innovation is dollars per employee. "Per employee" is total cost ÷ headcount at $75,000 average salary, before the ±35% range. Amplifier included (all five elements equal, so amp = 1 + 0.3 × gap).</td></tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="note-box nb-teal">
+      <div class="nb-label">How that compares to the evidence</div>
+      <div class="nb-content">At the default score of 52, the model charges about 13% of payroll, or roughly $10,000 per employee. For reference: Gallup's disengagement estimate is 9% of global GDP [12]; McKinsey's decision-time figure alone is about $4,400 per employee per year, counting only managers' hours [7]; one avoided crucial conversation costs $7,500 [8]; and Simons' integrity effect is worth about 2.5% of revenue, which for a labor-heavy business is a large share of payroll [1]. The default charge is inside the envelope those numbers draw. The ceiling is not.</div>
+    </div>
+
+    <div class="note-box nb-amber">
+      <div class="nb-label">On the ceiling</div>
+      <div class="nb-content">The calculator's own code comments describe a "credible ceiling" of about 27% of payroll. That figure is the three labor categories after the overlap discount and <strong>before</strong> the foundation amplifier. With the amplifier at its maximum the labor ceiling is 31.6%, and the full model, including turnover and innovation, reaches about 45% of payroll at a score of zero across the board. A score of zero on all five elements is not a real organization; it is the mathematical edge of the model. But the 27% figure should be read as what it is: the labor-only, pre-amplifier ceiling.</div>
+    </div>
+  </section>
+
+  <!-- ═══ REFERENCES ═══ -->
+  <section id="references">
+    <div class="section-kicker">05</div>
+    <h2>References</h2>
+    <p class="lede">Grouped by the question each answers. Where we could only reach a secondary source, the entry says so.</p>
+
+    <div class="group-title">Trust and behavioral integrity</div>
+    <ol class="reflist">
+      <li>Simons, T. (2002). The high cost of lost trust. <em>Harvard Business Review</em>, 80(9), 18–19. <a href="https://hbr.org/2002/09/the-high-cost-of-lost-trust" target="_blank" rel="noopener">hbr.org</a><span class="used">Used for: Political Tax. 6,500 employees, 76 Holiday Inn hotels; one-eighth point of managerial integrity ≈ 2.5% of revenue in profit.</span></li>
+      <li>Cornell University (2002, September). Cornell study shows company earnings rise when employees believe managers mean what they say [press release]. <a href="https://news.cornell.edu/node/280372" target="_blank" rel="noopener">news.cornell.edu</a><span class="used">Used for: sample and effect-size details behind [1] (Simons &amp; McLean Parks).</span></li>
+      <li>Zak, P. J. (2017). The neuroscience of trust. <em>Harvard Business Review</em>, 95(1), 84–90. <a href="https://hbr.org/2017/01/the-neuroscience-of-trust" target="_blank" rel="noopener">hbr.org</a><span class="used">Used for: Political Tax, Innovation Deficit. n = 1,095 U.S. working adults, February 2016; all outcomes self-reported.</span></li>
+    </ol>
+
+    <div class="group-title">Voice, silence and self-censorship</div>
+    <ol class="reflist" style="counter-reset: ref 3;">
+      <li>Milliken, F. J., Morrison, E. W., &amp; Hewlin, P. F. (2003). An exploratory study of employee silence: Issues that employees don't communicate upward and why. <em>Journal of Management Studies</em>, 40(6), 1453–1476. <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/1467-6486.00387" target="_blank" rel="noopener">doi:10.1111/1467-6486.00387</a><span class="used">Used for: Decision Drag. Source of the "85% felt unable to raise an issue" finding.</span></li>
+      <li>Detert, J. R., &amp; Edmondson, A. C. (2011). Implicit voice theories: Taken-for-granted rules of self-censorship at work. <em>Academy of Management Journal</em>, 54(3), 461–488. <a href="https://journals.aom.org/doi/10.5465/amj.2011.61967925" target="_blank" rel="noopener">doi:10.5465/amj.2011.61967925</a><span class="used">Used for: Decision Drag, Candor Adjustment.</span></li>
+      <li>Chang, C.-H., Rosen, C. C., &amp; Levy, P. E. (2009). The relationship between perceptions of organizational politics and employee attitudes, strain, and behavior: A meta-analytic examination. <em>Academy of Management Journal</em>, 52(4), 779–801. <a href="https://journals.aom.org/doi/10.5465/amj.2009.43670894" target="_blank" rel="noopener">doi:10.5465/amj.2009.43670894</a><span class="used">Used for: Political Tax.</span></li>
+    </ol>
+
+    <div class="group-title">Decision-making and avoided conversations</div>
+    <ol class="reflist" style="counter-reset: ref 6;">
+      <li>Aminov, I., De Smet, A., Jost, G., &amp; Mendelsohn, D. (2019, April 30). Decision making in the age of urgency. McKinsey &amp; Company, Organization Practice. <a href="https://www.mckinsey.com/capabilities/people-and-organization/our-insights/decision-making-in-the-age-of-urgency" target="_blank" rel="noopener">mckinsey.com</a><span class="used">Used for: Decision Drag. n = 1,259; 37% of time on decisions, 61% ineffective; ≈530,000 days and ≈$250M per year at a 56,400-employee Fortune 500 company. Note: this is McKinsey's Organization Practice, not the McKinsey Global Institute.</span></li>
+      <li>Grenny, J., &amp; Maxfield, D. (2016, December 6). Costly conversations: Why the way employees communicate will make or break your bottom line. VitalSmarts (now Crucial Learning). <a href="https://www.prnewswire.com/news-releases/costly-conversations-why-the-way-employees-communicate-will-make-or-break-your-bottom-line-300373350.html" target="_blank" rel="noopener">press release</a><span class="used">Used for: Decision Drag, Innovation Deficit. n = 1,025; $7,500 average cost per avoided conversation; 1 in 5 estimate &gt; $50,000.</span></li>
+      <li>Morrison, E. W., &amp; Milliken, F. J. (2000). Organizational silence: A barrier to change and development in a pluralistic world. <em>Academy of Management Review</em>, 25(4), 706–725. <a href="https://journals.aom.org/doi/abs/10.5465/amr.2000.3707697" target="_blank" rel="noopener">doi:10.5465/amr.2000.3707697</a><span class="used">Used for: Gap exponent (self-reinforcing climates of silence). Note: <em>Review</em>, not <em>Journal</em>.</span></li>
+      <li>Slovic, P. (1993). Perceived risk, trust, and democracy. <em>Risk Analysis</em>, 13(6), 675–682. <a href="https://doi.org/10.1111/j.1539-6924.1993.tb01329.x" target="_blank" rel="noopener">doi:10.1111/j.1539-6924.1993.tb01329.x</a><span class="used">Used for: Gap exponent. The asymmetry principle: trust is created slowly and destroyed quickly.</span></li>
+    </ol>
+
+    <div class="group-title">Fake work and disengagement</div>
+    <ol class="reflist" style="counter-reset: ref 10;">
+      <li>Peterson, B. D., &amp; Nielson, G. W. (2009). <em>Fake work: Why people are working harder than ever but accomplishing less, and how to fix the problem</em>. Simon Spotlight Entertainment. <a href="https://www.simonandschuster.com/books/Fake-Work/Brent-D-Peterson/9781416586357" target="_blank" rel="noopener">publisher page</a><span class="used">Used for: Fake Work Tax. Roughly 50% of work fails to advance strategy; the authors' own survey work, not peer-reviewed.</span></li>
+      <li>Gallup. (2023). <em>State of the Global Workplace: 2023 report</em>. <a href="https://www.gallup.com/workplace/393497/world-trillion-workplace-problem.aspx" target="_blank" rel="noopener">gallup.com</a><span class="used">Used for: Fake Work Tax. $8.8 trillion in lost productivity, ≈9% of global GDP (2024 edition: $8.9 trillion).</span></li>
+      <li>McKinsey Global Institute. (2012, July). <em>The social economy: Unlocking value and productivity through social technologies</em>. <a href="https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/the-social-economy" target="_blank" rel="noopener">mckinsey.com</a><span class="used">Used for: Fake Work Tax. 20–25% potential productivity improvement for interaction workers.</span></li>
+      <li>Panopto. (2018, July 18). <em>Workplace Knowledge and Productivity Report</em>. Reported in HR Dive. <a href="https://www.hrdive.com/news/inefficient-knowledge-sharing-costs-large-us-businesses-47m-a-year/527892/" target="_blank" rel="noopener">hrdive.com</a><span class="used">Used for: Innovation Deficit. n = 1,000; 5.3 hours/week waiting for or recreating information. Vendor research; secondary source.</span></li>
+      <li>Watson Wyatt Worldwide. (2002). <em>WorkUSA 2002: Weathering the storm</em>. Cited in Chief Executive, "The business case for trust." <a href="https://chiefexecutive.net/the-business-case-for-trust/" target="_blank" rel="noopener">chiefexecutive.net</a><span class="used">Used for: Political Tax. 286% higher total shareholder return at high-trust organizations. Secondhand; original report not located.</span></li>
+    </ol>
+
+    <div class="group-title">Turnover and culture</div>
+    <ol class="reflist" style="counter-reset: ref 15;">
+      <li>Work Institute. (2025). <em>2025 Retention Report: Employee retention truths in today's workplace</em>. <a href="https://info.workinstitute.com/hubfs/2025%20Retention%20Report/2025%20Retention%20Report%20-%20Employee%20Retention%20Truths%20in%20Todays%20Workplace.pdf" target="_blank" rel="noopener">workinstitute.com (PDF)</a><span class="used">Used for: Mercenary Cost. 63% of 2024 exits preventable; replacement cost conservatively 33% of base salary.</span></li>
+      <li>Gallup. (2024, July). Reported in <em>Fortune</em>, "U.S. employees are job hunting, and managers could have prevented most of it." <a href="https://www.fortune.com/2024/07/11/us-employees-job-hunting-managers-can-prevent-quitting" target="_blank" rel="noopener">fortune.com</a><span class="used">Used for: Mercenary Cost. 42% of voluntary exits preventable; replacement cost ≈200% (leaders), 80% (technical), 40% (frontline) of salary.</span></li>
+      <li>U.S. Bureau of Labor Statistics. (2025). Job Openings and Labor Turnover Survey, Table 22: Annual average quits rates by industry and region. <a href="https://www.bls.gov/news.release/jolts.t22.htm" target="_blank" rel="noopener">bls.gov</a><span class="used">Used for: Mercenary Cost. Private-sector quits rate 2.3% per month in 2024 (≈27% annualized).</span></li>
+      <li>Sull, D., Sull, C., &amp; Zweig, B. (2022). Toxic culture is driving the Great Resignation. <em>MIT Sloan Management Review</em>, 63(2). <a href="https://sloanreview.mit.edu/article/toxic-culture-is-driving-the-great-resignation/" target="_blank" rel="noopener">sloanreview.mit.edu</a><span class="used">Used for: Mercenary Cost, Recovery cost. Toxic culture 10.4× more predictive of attrition than compensation.</span></li>
+      <li>Society for Human Resource Management. (2019, September 25). <em>The high cost of a toxic workplace culture</em>. <a href="https://www.shrm.org/about/press-room/shrm-reports-toxic-workplace-cultures-cost-billions" target="_blank" rel="noopener">shrm.org</a><span class="used">Used for: Mercenary Cost. $223 billion in culture-driven turnover over five years; 1 in 5 left a job over culture.</span></li>
+      <li>Korn Ferry. (2018, January). Breaking boredom: What's really driving job seekers in 2018. <a href="https://www.kornferry.com/insights/this-week-in-leadership/job-hunting-2018-boredom" target="_blank" rel="noopener">kornferry.com</a><span class="used">Used for: Mercenary Cost, Foundation weighting. n ≈ 5,000; 33% leaving for lack of challenge.</span></li>
+      <li>Sull, D., Turconi, S., &amp; Sull, C. (2020). When it comes to culture, does your company walk the talk? <em>MIT Sloan Management Review</em>. <a href="https://sloanreview.mit.edu/article/when-it-comes-to-culture-does-your-company-walk-the-talk/" target="_blank" rel="noopener">sloanreview.mit.edu</a><span class="used">Used for: Candor Adjustment. No correlation between official values and employee-described culture.</span></li>
+    </ol>
+
+    <div class="group-title">Also relevant, not used in a coefficient</div>
+    <ol class="reflist" style="counter-reset: ref 22;">
+      <li>Keil, M., Smith, H. J., Iacovou, C. L., &amp; Thompson, R. L. (2014). The pitfalls of project status reporting. <em>MIT Sloan Management Review</em>, 55(3), 57–64. <a href="https://sloanreview.mit.edu/article/the-pitfalls-of-project-status-reporting/" target="_blank" rel="noopener">sloanreview.mit.edu</a><span class="used">Systematic misreporting of project status; the mechanism behind "green while aware."</span></li>
+      <li>Guiso, L., Sapienza, P., &amp; Zingales, L. (2015). The value of corporate culture. <em>Journal of Financial Economics</em>, 117(1), 60–76. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0304405X14001147" target="_blank" rel="noopener">doi:10.1016/j.jfineco.2014.05.010</a><span class="used">Proclaimed values do not predict performance; perceived management integrity does.</span></li>
+      <li>Association of Certified Fraud Examiners. (2024). <em>Occupational fraud 2024: A report to the nations</em>. <a href="https://www.acfe.com/about-the-acfe/newsroom-for-media/press-releases/press-release-detail?s=2024-Report-to-the-Nations" target="_blank" rel="noopener">acfe.com</a><span class="used">Organizations lose an estimated 5% of revenue to fraud each year. The Lie Economy's most literal line item; not modeled because it overlaps unpredictably with the five categories.</span></li>
+    </ol>
+  </section>
+
+  <!-- ═══ WEAKNESSES ═══ -->
+  <section id="weaknesses">
+    <div class="section-kicker">06</div>
+    <h2>Known weaknesses</h2>
+    <p class="lede">The Skeptic's Appendix answers the six strongest objections to the calculator's existence. This list is narrower: the specific places where the numbers are weaker than the page makes them look.</p>
+    <div class="weak">
+      <div class="weak-item"><div class="n">1</div><div><strong>The $1,800 Innovation Deficit is untraced.</strong> No study we found produces it. It should be replaced with a derivation, for example a per-employee share of the VitalSmarts avoided-conversation cost, or dropped and folded into Decision Drag.</div></div>
+      <div class="weak-item"><div class="n">2</div><div><strong>Most coefficients are ours.</strong> Of fourteen, one factor (63% preventable) is taken directly from a study. Five are bounded by evidence. The rest are modeling choices. That is a defensible way to build a directional tool; it is not the same as "grounded in research," and the calculator's footnote should say which is which.</div></div>
+      <div class="weak-item"><div class="n">3</div><div><strong>The evidence is correlational and much of it is self-reported.</strong> Zak's productivity gap is what employees said about themselves. Simons is the strongest causal-leaning study here and it is one industry. None of the sources establish that raising a Courage Score causes the modeled savings.</div></div>
+      <div class="weak-item"><div class="n">4</div><div><strong>Replacement cost is set well above Work Institute's own figure.</strong> We cite Work Institute for the 63% and then price replacement at 85% of salary, when their report says 33%. The 85% comes from Gallup's role-based range. Both are legitimate; using them together should be visible, and now it is.</div></div>
+      <div class="weak-item"><div class="n">5</div><div><strong>The "27% ceiling" is understated.</strong> The code comments and the Skeptic's Appendix cite a credible ceiling of about 27% of payroll. That is the labor categories before the foundation amplifier. The model's actual ceiling is 31.6% for labor and roughly 45% in total. See <a href="#charges">What it actually charges</a>.</div></div>
+      <div class="weak-item"><div class="n">6</div><div><strong>Two attributions in the calculator footnote are imprecise.</strong> The decision-making research is from McKinsey's Organization Practice, not the McKinsey Global Institute. The organizational-silence paper is in the <em>Academy of Management Review</em>; the <em>Journal</em> articles are Detert &amp; Edmondson and Chang, Rosen &amp; Levy.</div></div>
+      <div class="weak-item"><div class="n">7</div><div><strong>Some sources are secondhand or vendor-produced.</strong> Watson Wyatt (2002) and Panopto (2018) could only be reached through secondary reporting; VitalSmarts and Work Institute are firms that sell solutions to the problems they measure. They are cited because the numbers are widely used, not because they are peer-reviewed.</div></div>
+      <div class="weak-item"><div class="n">8</div><div><strong>Recovery cost and its 15% escalation are illustrative.</strong> No study measures how fast the cost of reversing a Lie Economy grows. The figure exists to make the argument that delay is not free. It should not be quoted as a forecast.</div></div>
+    </div>
+  </section>
+
+  <div class="cta-strip">
+    <div>
+      <h3>Found a better number?</h3>
+      <p>Every figure on this page is open to challenge. Send the study and we will update the model and this page.</p>
+    </div>
+    <div class="cta-btns">
+      <a href="/calculator.html" class="cta-btn">Back to the Calculator →</a>
+      <a href="https://bellomoleadership.com" target="_blank" rel="noopener" class="cta-btn ghost">Contact Thane Bellomo</a>
+    </div>
+  </div>
+
+  <p class="footnote">
+    Sources &amp; Methods for the Lie Economy Calculator v3. Sources reviewed September 2026. Companion to <a href="/skeptics-appendix.pdf" target="_blank" rel="noopener">The Skeptic's Appendix</a>. Framework: Thane Bellomo, <em>The Courage Economy</em>&trade;.
+  </p>
+  <p class="footnote legal">
+    &copy; 2026 Bellomo Leadership LLC. All rights reserved. The Courage Economy&trade; is a trademark of Bellomo Leadership LLC. This page, the Lie Economy Calculator, and the model they describe are proprietary to Bellomo Leadership LLC. May be cited with attribution. May not be reproduced or adapted for commercial use without permission. Cited works remain the property of their respective authors and publishers.
+  </p>
+</main>
+</body>
+</html>

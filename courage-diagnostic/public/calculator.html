@@ -166,6 +166,7 @@
 
   .skeptic-invite { margin: 28px 22px 20px; padding: 18px 22px; border-left: 3px solid #C4A87A; background: #FAF8F4; border-radius: 4px; }
   .skeptic-invite p { margin: 0 0 10px; font-size: 0.95rem; line-height: 1.55; color: #2C3644; }
+  .skeptic-links { display: flex; flex-wrap: wrap; gap: 8px 22px; }
   .skeptic-link { display: inline-block; font-weight: 700; font-size: 0.92rem; letter-spacing: 0.3px; color: #16294A; text-decoration: none; border-bottom: 2px solid #C4A87A; padding-bottom: 1px; }
   .skeptic-link:hover { color: #C4A87A; border-bottom-color: #16294A; }
   .empty { text-align: center; padding: 40px 20px; color: var(--gray-500); }
@@ -292,7 +293,7 @@
   </div>
 
   <p class="footnote">
-    v3 methodology: labor-based cost categories are deduplicated with a 0.65 overlap factor (the same wasted hour is never counted twice); the Courage Gap uses a nonlinear (^1.5) curve reflecting threshold effects in trust erosion; Important Work carries double weight and amplifies other dimensions as the Foundation element; all outputs are shown as ranges (±35%), not false-precision point estimates. Grounded in research from MIT Sloan Management Review, McKinsey Global Institute, Academy of Management Journal, Work Institute, SHRM, Korn Ferry, Gallup, and Paul Zak (HBR). Figures are directional industry medians, pending primary-source verification. Every serious objection to this model — and our honest answers — are documented in <a href="/skeptics-appendix.pdf" target="_blank" rel="noopener">The Skeptic's Appendix</a>. Framework: Thane Bellomo, <em>The Courage Economy</em>.
+    v3 methodology: labor-based cost categories are deduplicated with a 0.65 overlap factor (the same wasted hour is never counted twice); the Courage Gap uses a nonlinear (^1.5) curve reflecting threshold effects in trust erosion; Important Work carries double weight and amplifies other dimensions as the Foundation element; all outputs are shown as ranges (±35%), not false-precision point estimates. Every coefficient, its evidence tier, and the full citation list are documented in <a href="/sources-and-methods.html" target="_blank" rel="noopener">Sources &amp; Methods</a>. Every serious objection to this model — and our honest answers — are documented in <a href="/skeptics-appendix.pdf" target="_blank" rel="noopener">The Skeptic's Appendix</a>. Framework: Thane Bellomo, <em>The Courage Economy</em>.
   </p>
 </main>
 
@@ -301,7 +302,9 @@
 // Corrections vs v2:
 // 1. Overlap discount: labor-% categories (Fake Work, Decision Drag,
 //    Political Tax) tax the same hours → summed then × 0.65.
-//    Max labor drag = 42% × 0.65 ≈ 27% of payroll (credible ceiling).
+//    Max labor drag = 42% × 0.65 ≈ 27% of payroll before the Foundation
+//    amplifier (31.6% with it at IW = 0). Full-model ceiling ≈ 45% of
+//    payroll at a score of 0 on all five elements. See /sources-and-methods.html.
 // 2. Nonlinear gap: gap^1.5 — low scores hurt disproportionately
 //    (threshold effects in trust erosion).
 // 3. Foundation weighting: Important Work carries 2× weight in the
@@ -509,11 +512,17 @@ function calculate() {
         <p>
           <strong>Think this number is too high?</strong>
           Good — that is the point. We wrote down the six strongest objections to this
-          calculator, including the ones where the objection is simply right.
+          calculator, including the ones where the objection is simply right — and
+          where every number in it comes from.
         </p>
-        <a href="/skeptics-appendix.pdf" target="_blank" rel="noopener" class="skeptic-link">
-          Read The Skeptic's Appendix →
-        </a>
+        <div class="skeptic-links">
+          <a href="/skeptics-appendix.pdf" target="_blank" rel="noopener" class="skeptic-link">
+            Read The Skeptic's Appendix →
+          </a>
+          <a href="/sources-and-methods.html" target="_blank" rel="noopener" class="skeptic-link">
+            Sources &amp; Methods →
+          </a>
+        </div>
       </div>
 
       <div class="note-box nb-red" style="margin-top:16px">
